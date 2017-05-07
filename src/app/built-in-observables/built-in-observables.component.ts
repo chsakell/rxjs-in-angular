@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./built-in-observables.component.css']
 })
 export class BuiltInObservablesComponent implements OnInit {
+  
+  sideEffet$ = 0;
 
   constructor() { }
 
@@ -18,6 +20,8 @@ export class BuiltInObservablesComponent implements OnInit {
     // this.test_04();
     // this.test_05();
     // this.test_06();
+    // this.test_07();
+    // this.test_08();
   }
 
   test_01() {
@@ -50,6 +54,22 @@ export class BuiltInObservablesComponent implements OnInit {
   test_06() {
     Observable.throw(new Error('Hey error!'))
       .subscribe(createSubscriber('Error'));
+  }
+
+  test_07() {
+    const defer$ = Observable.defer(() => {
+      this.sideEffet$++;
+      return Observable.of(this.sideEffet$);
+    });
+
+    defer$.subscribe(createSubscriber('defer$.one'));
+    defer$.subscribe(createSubscriber('defer$.two'));
+    defer$.subscribe(createSubscriber('defer$.three'));
+  }
+
+  test_08() {
+    Observable.range(10, 30)
+      .subscribe(createSubscriber('range'));
   }
 
 }
