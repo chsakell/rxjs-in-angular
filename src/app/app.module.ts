@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CreateObservablesComponent } from './create-observables/create-observables.component';
 import { BuiltInObservablesComponent } from './built-in-observables/built-in-observables.component';
+import { SubjectsComponent } from './subjects/subjects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateObservablesComponent,
-    BuiltInObservablesComponent
+    BuiltInObservablesComponent,
+    SubjectsComponent
   ],
   imports: [
     BrowserModule,
