@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CreateObservablesComponent } from './create-observables/create-observables.component';
+import { BuiltInObservablesComponent } from './built-in-observables/built-in-observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateObservablesComponent
+    CreateObservablesComponent,
+    BuiltInObservablesComponent
   ],
   imports: [
     BrowserModule,
