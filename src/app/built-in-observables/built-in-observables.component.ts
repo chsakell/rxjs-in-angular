@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./built-in-observables.component.css']
 })
 export class BuiltInObservablesComponent implements OnInit {
-  
+
   sideEffet$ = 0;
 
   constructor() { }
@@ -46,7 +46,7 @@ export class BuiltInObservablesComponent implements OnInit {
   }
 
   test_05() {
-    Observable.from([1,2,3,4,5])
+    Observable.from([1, 2, 3, 4, 5])
       .map(i => i * 5)
       .subscribe(createSubscriber('from'));
   }

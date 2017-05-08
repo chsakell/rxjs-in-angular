@@ -17,7 +17,7 @@ export class SubjectsComponent implements OnInit {
     // this.test_03();
     // this.test_04();
     // this.test_05();
-    this.test_06();
+    // this.test_06();
   }
 
   test_01() {
