@@ -8,6 +8,7 @@ import { CreateObservablesComponent } from './create-observables/create-observab
 import { BuiltInObservablesComponent } from './built-in-observables/built-in-observables.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
+import { OperatorsComponent } from './operators/operators.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
     CreateObservablesComponent,
     BuiltInObservablesComponent,
     SubjectsComponent,
-    HotAndColdComponent
+    HotAndColdComponent,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ export class HotAndColdComponent implements OnInit {
     // this.test_02();
     // this.test_03();
     // this.test_04();
-    this.test_05();
+    // this.test_05();
   }
 
   test_01() {
