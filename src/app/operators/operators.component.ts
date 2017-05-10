@@ -23,6 +23,9 @@ export class OperatorsComponent implements OnInit {
     // this.concatMulti();
     // this.mergeMap();
     // this.mergeMapFrom();
+    // this.reduce();
+    // this.scan();
+    this.scanLast();
 
     /*
     const array = this.arrayMap([1, 2, 4], a => a * a);
@@ -34,6 +37,19 @@ export class OperatorsComponent implements OnInit {
     ];
     const tracks = this.arrayMergeMap(albums, a => a.tracks);
     console.log(tracks);
+
+    const values = [1, 2, 4, 5, 6];
+    console.log(this.arrayReduce(values, (acc, i) => acc + i, 0));
+    const max = this.arrayReduce(
+      values,
+      function (acc, value) {
+        if (value > acc) {
+          return value;
+        }
+        // return Math.max(acc, value);
+      }, 0);
+
+    console.log(max);
     */
   }
 
@@ -138,6 +154,37 @@ export class OperatorsComponent implements OnInit {
         resolve(['Track 1', 'Track 2', 'Track 3']);
       }, 1000);
     });
+  }
+
+  arrayReduce(array, accumulator, startValue) {
+    let value = startValue;
+    for (const item of array) {
+      value = accumulator(value, item);
+    }
+
+    return value;
+  }
+
+  reduce() {
+    // must complete before emit
+    Observable.range(1, 10)
+      .reduce((acc, value) => acc + value)
+      .subscribe(createSubscriber('reduce'));
+  }
+
+  scan() {
+    // produces values without waiting to complete
+    Observable.range(1, 10)
+      .merge(Observable.never())
+      .scan<number>((acc, value) => acc + value)
+      .subscribe(createSubscriber('scan'));
+  }
+
+  scanLast() {
+    Observable.range(1, 10)
+      .map(i => i * i)
+      .scan(([last], current) => [current, last], [])
+      .subscribe(createSubscriber('scan-last'));
   }
 
 }
