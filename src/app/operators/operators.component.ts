@@ -1,6 +1,6 @@
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-operators',
@@ -25,7 +25,15 @@ export class OperatorsComponent implements OnInit {
     // this.mergeMapFrom();
     // this.reduce();
     // this.scan();
-    this.scanLast();
+    // this.scanLast();
+    // this.buffer();
+    // this.bufferTime();
+    // this.bufferObservable();
+    // this.collectTillStop();
+    // this.toArray();
+    // this.firstLastTakeSkip();
+    // this.skipTakeWhile();
+    this.skipTakeUntil();
 
     /*
     const array = this.arrayMap([1, 2, 4], a => a * a);
@@ -185,6 +193,76 @@ export class OperatorsComponent implements OnInit {
       .map(i => i * i)
       .scan(([last], current) => [current, last], [])
       .subscribe(createSubscriber('scan-last'));
+  }
+
+  buffer() {
+    Observable.range(1, 100)
+      .bufferCount(25)
+      .subscribe(createSubscriber('buffer'));
+  }
+
+  bufferTime() {
+    Observable.interval(200)
+      .bufferTime(2000)
+      .subscribe(createSubscriber('buffer-time'));
+  }
+
+  bufferObservable() {
+    Observable.interval(500)
+      .buffer(Observable.interval(2000))
+      .subscribe(createSubscriber('buffer-observable'));
+  }
+
+  collectTillStop() {
+    const stopSubject$ = new Subject();
+    Observable.interval(500)
+      .buffer(stopSubject$)
+      .subscribe(createSubscriber('collect'));
+
+    setTimeout(function () {
+      stopSubject$.next();
+      stopSubject$.complete();
+    }, 3000);
+  }
+
+  toArray() {
+    Observable.range(1, 10)
+      .toArray()
+      .subscribe(createSubscriber('to-array'));
+  }
+
+  firstLastTakeSkip() {
+    const simple$ = new Observable(observer => {
+      observer.next(1);
+      observer.next(2);
+      observer.next(3);
+      observer.next(4);
+      observer.next(5);
+      observer.complete();
+    });
+
+    simple$.first().subscribe(createSubscriber('first'));
+    simple$.last().subscribe(createSubscriber('last'));
+    simple$.take(2).subscribe(createSubscriber('take'));
+    simple$.skip(2).subscribe(createSubscriber('skip'));
+    simple$
+      .skip(2)
+      .take(3)
+      .subscribe(createSubscriber('skip-take'));
+  }
+
+  skipTakeWhile() {
+    Observable.interval(500)
+      .skipWhile(i => i < 4)
+      .takeWhile(i => i < 10)
+      .subscribe(createSubscriber('skip-take-while'));
+  }
+
+  skipTakeUntil() {
+    Observable.interval(500)
+      .skipUntil(Observable.timer(2000))
+      .takeUntil(Observable.timer(4000))
+      .subscribe(createSubscriber('skip-take-until'));
   }
 
 }
