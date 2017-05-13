@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CreateObservablesComponent } from './create-observables/create-observables.component';
@@ -10,11 +11,18 @@ import { BuiltInObservablesComponent } from './built-in-observables/built-in-obs
 import { SubjectsComponent } from './subjects/subjects.component';
 import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
 import { OperatorsComponent } from './operators/operators.component';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import { APP_ROUTES } from 'app/app.routes';
+import {
+  FullscreenOverlayContainer,
+  MaterialModule,
+  MdNativeDateModule,
+  MdSelectionModule,
+  OverlayContainer
+} from '@angular/material';
 
 import 'hammerjs';
+import { HomeComponent } from './home/home.component';
 
-const MdModules = [MdButtonModule, MdCheckboxModule];
 
 @NgModule({
   declarations: [
@@ -23,15 +31,22 @@ const MdModules = [MdButtonModule, MdCheckboxModule];
     BuiltInObservablesComponent,
     SubjectsComponent,
     HotAndColdComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ...MdModules
+    ReactiveFormsModule,
+    RouterModule.forRoot(APP_ROUTES),
+    MaterialModule,
+    MdNativeDateModule,
+    MdSelectionModule
   ],
-  providers: [],
+  providers: [
+    { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

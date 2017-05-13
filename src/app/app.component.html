@@ -1,5 +1,29 @@
-<app-create-observables></app-create-observables>
-<app-built-in-observables></app-built-in-observables>
-<app-subjects></app-subjects>
-<app-hot-and-cold></app-hot-and-cold>
-<app-operators></app-operators>
+<md-sidenav-container class="demo-root" fullscreen>
+  <md-sidenav #start>
+    <md-nav-list>
+      <a *ngFor="let navItem of navItems"
+         md-list-item
+         (click)="start.close()"
+         [routerLink]="[navItem.route]">
+        {{navItem.name}}
+      </a>
+      <hr>
+    </md-nav-list>
+    <button md-button (click)="start.close()">CLOSE</button>
+  </md-sidenav>
+  <div>
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="start.open()">
+        <md-icon class="md-24" >menu</md-icon>
+      </button>
+      <div class="demo-toolbar">
+        <h1>RxJS Operators in Angular</h1>
+        <button md-button (click)="dark = !dark">{{dark ? 'Light' : 'Dark'}} theme</button>
+      </div>
+    </md-toolbar>
+
+    <div #root="$implicit" dir="ltr" class="demo-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-container>

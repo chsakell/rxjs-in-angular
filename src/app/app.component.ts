@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  // tslint:disable-next-line:use-host-property-decorator
+  host: {
+    '[class.unicorn-dark-theme]': 'dark',
+  },
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 
-  title = 'app works!';
+  navItems = [
+    { name: 'Create Observables', route: 'create-observables' },
+    { name: 'Build-in Observables', route: 'build-in-observables' },
+    { name: 'Hot & Cold Observables', route: 'hot-and-cold-observables' },
+    { name: 'Subjects', route: 'subjects' },
+    { name: 'Operators', route: 'operators' }
+  ];
 }
