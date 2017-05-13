@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import './app/theme.css';
+
+.card-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.card-container .mat-card {
+  margin: 0 16px 16px 0;
+}
+
+.card-container .card-item {
+  padding: 10px;
+}
+
+.demo-card-container img {
+  background-color: gray;
+}
+

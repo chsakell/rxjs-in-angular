@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { createInterval$, createSubscriber, take$ } from 'app/shared/utils';
+import { MOCK_USERS } from '../shared/data';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-create-observables',
   templateUrl: './create-observables.component.html',
   styleUrls: ['./create-observables.component.css']
 })
 export class CreateObservablesComponent implements OnInit {
+  users: any[] = [];
+  icons$: Observable<any>;
 
   simple$ = new Observable(observer => {
     console.log('Generating observable..');
@@ -29,11 +33,39 @@ export class CreateObservablesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.fromScratch();
+    this.of();
     // this.test_01();
     // this.test_02();
     // this.test_03();
     // this.test_04();
     // this.test_05();
+  }
+
+  fromScratch() {
+    this.users = [];
+    const users$ = new Observable(observer => {
+      for (let i = 0; i < 4; i++) {
+        setTimeout(function () {
+          const userId = Math.floor((Math.random() * 9) + 1);
+          console.log('user', MOCK_USERS[userId]);
+          observer.next(MOCK_USERS[userId]);
+        }, (i + 1) * 2000);
+      }
+    });
+
+    users$.subscribe(user => {
+      this.users.push(user);
+    });
+  }
+
+  of() {
+    const mdIcons: [string] = ['home', 'donut_large', 'alarm_on', 'announcement'];
+    this.icons$ = Observable.of(mdIcons);
+  }
+
+  randomize() {
+    this.fromScratch();
   }
 
   test_01() {
