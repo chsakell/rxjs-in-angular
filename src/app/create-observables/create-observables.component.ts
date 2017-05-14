@@ -54,7 +54,6 @@ export class CreateObservablesComponent implements OnInit {
       for (let i = 0; i < 4; i++) {
         setTimeout(function () {
           const userId = Math.floor((Math.random() * 9) + 1);
-          console.log('user', MOCK_USERS[userId]);
           observer.next(MOCK_USERS[userId]);
         }, (i + 1) * 2000);
       }
@@ -88,7 +87,6 @@ export class CreateObservablesComponent implements OnInit {
       const pos = this.getMousePos(this.mouseEventCard.nativeElement, event);
       const posx = pos.x;
       const posy = pos.y;
-      console.log(context);
       context.fillStyle = '#3f51b5';
       context.fillRect(posx - 2, posy - 2, 2, 2);
 

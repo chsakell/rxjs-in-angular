@@ -1,3 +1,4 @@
+import { LatestComponent } from './operators/latest/latest.component';
 import { OperatorsComponent } from './operators/operators.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
@@ -13,5 +14,6 @@ export const APP_ROUTES: Routes = [
     { path: 'build-in-observables', component: BuiltInObservablesComponent },
     { path: 'hot-and-cold-observables', component: HotAndColdComponent },
     { path: 'subjects', component: SubjectsComponent },
-    { path: 'operators', component: OperatorsComponent }
+    { path: 'operators', component: OperatorsComponent },
+    { path: 'latest', component: LatestComponent }
 ];

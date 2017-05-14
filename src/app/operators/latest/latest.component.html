@@ -1,0 +1,29 @@
+<div class="card-container">
+  <div>
+    <md-card>
+      <md-card-subtitle>Zip Observables</md-card-subtitle>
+      <md-card-title>Simple way to combine observables</md-card-title>
+      <md-card-content>
+        <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0"
+          [max]="10" step="1" #slider1></md-slider>
+        <md-list dense>
+          <md-list-item *ngFor="let user of users">
+            <h3 md-line>{{user.username}}</h3>
+            <p md-line class="demo-secondary-text">{{user.name}}</p>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+      <md-card-content>
+        <p>The zip operator will subscribe to all inner observables, waiting for each to emit a value. Once this occurs, all
+          values with the corresponding index will be emitted. This will continue until at least one inner observable completes.</p>
+        <md-card-actions>
+          <button md-raised-button [color]="'primary'" (click)="startZipping(10)">Set interval 10</button>
+          <button md-raised-button [color]="'warn'" (click)="startZipping(5)">Set interval 5</button>
+        </md-card-actions>
+      </md-card-content>
+      <md-card-footer>
+        <md-progress-bar mode="determinate"></md-progress-bar>
+      </md-card-footer>
+    </md-card>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { DataService } from './shared/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -22,6 +23,7 @@ import {
 
 import 'hammerjs';
 import { HomeComponent } from './home/home.component';
+import { LatestComponent } from './operators/latest/latest.component';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     SubjectsComponent,
     HotAndColdComponent,
     OperatorsComponent,
-    HomeComponent
+    HomeComponent,
+    LatestComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { HomeComponent } from './home/home.component';
     MdSelectionModule
   ],
   providers: [
+    DataService,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],
   bootstrap: [AppComponent]
