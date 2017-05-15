@@ -39,6 +39,7 @@ import { LatestComponent } from './operators/latest/latest.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,

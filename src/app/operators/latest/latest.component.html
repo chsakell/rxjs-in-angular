@@ -25,5 +25,40 @@
         <md-progress-bar mode="determinate"></md-progress-bar>
       </md-card-footer>
     </md-card>
+    <md-card>
+      <md-card-subtitle>Observable.withLatestFrom</md-card-subtitle>
+      <md-card-title>On source emit..</md-card-title>
+      <md-card-content>
+        <md-select placeholder="Select user">
+          <md-option *ngFor="let user of allUsers" [value]="user.id">
+            {{user.name}}
+          </md-option>
+        </md-select>
+        <br/>
+        <div>
+          <md-button-toggle-group #group="mdButtonToggleGroup">
+            <md-button-toggle value="left">
+              View Company
+              <md-icon [color]="'primary'">card_travel</md-icon>
+            </md-button-toggle>
+            <md-button-toggle value="center">
+              View Address
+              <md-icon [color]="'accent'">add_location</md-icon>
+            </md-button-toggle>
+            <md-button-toggle value="right">
+              View Posts
+              <md-icon [color]="'warn'">rss_feed</md-icon>
+            </md-button-toggle>
+          </md-button-toggle-group>
+        </div>
+      </md-card-content>
+      <md-card-content>
+        <p>Combines the source Observable with other Observables to create an Observable whose values are calculated from the
+          latest values of each, only when the source emits..</p>
+      </md-card-content>
+      <md-card-footer>
+        <md-progress-bar mode="determinate"></md-progress-bar>
+      </md-card-footer>
+    </md-card>
   </div>
 </div>

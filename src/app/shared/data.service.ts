@@ -18,9 +18,9 @@ export class DataService {
         return Observable.from(MOCK_POSTS);
     }
 
-    wsOnUser(): Observable<any> {
+    wsOnUser(delay, size?: number): Observable<any> {
         return Observable
-            .interval(1000).take(10)
+            .interval(delay).take(size ? MOCK_USERS.length : size)
             .map(i => MOCK_USERS[i]);
     }
 }

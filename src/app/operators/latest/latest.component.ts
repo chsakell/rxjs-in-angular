@@ -14,6 +14,7 @@ export class LatestComponent implements OnInit {
   sliderValue = 0;
   sliderDisabled = false;
   users: any[] = [];
+  allUsers: any[] = MOCK_USERS;
 
   constructor(private ds: DataService) { }
 
@@ -51,7 +52,7 @@ export class LatestComponent implements OnInit {
 
     const timer$ = Observable.timer(1000, 1000).take(seconds);
 
-    this.ds.wsOnUser().zip(timer$, (user, sec) => {
+    this.ds.wsOnUser(1000, 10).zip(timer$, (user, sec) => {
       return { user, sec };
     }
     ).subscribe(info => {
