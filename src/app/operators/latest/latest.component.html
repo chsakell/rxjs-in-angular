@@ -26,15 +26,27 @@
       </md-card-footer>
     </md-card>
     <md-card>
-      <md-card-subtitle>Observable.withLatestFrom</md-card-subtitle>
+      <md-card-subtitle>
+        <span>Observable.withLatestFrom</span>
+        <span style="float:right">
+        <md-select [(ngModel)]="operator" class="md-select--150" (change)="switchOperator($event.value)">
+          <md-option [value]="'withLatestFrom'">
+            withLatestFrom
+          </md-option>
+          <md-option [value]="'combineLatest'">
+            combineLatest
+          </md-option>
+        </md-select>
+        </span>
+      </md-card-subtitle>
       <md-card-title>On source emit..</md-card-title>
       <md-card-content>
-        <md-select placeholder="Select user">
+        <md-select placeholder="Select user" class="md-select--150">
           <md-option *ngFor="let user of allUsers" [value]="user.id" (click)="nextUser(user)">
             {{user.name}}
           </md-option>
         </md-select>
-        <button md-icon-button mdTooltip="withLatestFrom observable" [mdTooltipPosition]="'right'">
+        <button md-icon-button [mdTooltip]="tooltip" [mdTooltipPosition]="'right'">
           <md-icon [color]="'primary'">info</md-icon>
         </button>
         <br/>

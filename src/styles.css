@@ -38,3 +38,7 @@
   display: inline-block;
   width: 50%;
 }
+
+.md-select--150 {
+  width:150px;
+}

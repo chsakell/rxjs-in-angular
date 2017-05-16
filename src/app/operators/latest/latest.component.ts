@@ -23,11 +23,14 @@ export class LatestComponent implements OnInit {
   selectedOption$ = new Subject();
   selectedUser: any;
   selectedUserPosts: any[] = [];
+  operator = 'withLatestFrom';
+  tooltip = this.operator + ' observable';
 
   constructor(private ds: DataService) { }
 
   ngOnInit() {
     this.startWithLatestFrom();
+    this.startCombineLatest();
     // this.zip();
     // this.withLatestFrom();
     // this.withLatestFromExample();
@@ -73,13 +76,28 @@ export class LatestComponent implements OnInit {
   }
 
   startWithLatestFrom() {
+    const self = this;
     this.selectedOption$
       .withLatestFrom(this.selectedUser$)
       .subscribe(([option, user]) => {
-        console.log('option', option);
-        console.log('user', user);
-        this.selectedUser = user;
-        this.selectedUserPosts = _.filter(MOCK_POSTS, (p: any) => p.userId === this.selectedUser.id);
+        if (self.operator === 'withLatestFrom') {
+          console.log('withLatestFrom');
+          this.selectedUser = user;
+          this.selectedUserPosts = _.filter(MOCK_POSTS, (p: any) => p.userId === this.selectedUser.id);
+        }
+      });
+  }
+
+  startCombineLatest() {
+    const self = this;
+    this.selectedOption$
+      .combineLatest(this.selectedUser$)
+      .subscribe(([option, user]) => {
+        if (self.operator === 'combineLatest') {
+          console.log('combineLatest');
+          this.selectedUser = user;
+          this.selectedUserPosts = _.filter(MOCK_POSTS, (p: any) => p.userId === this.selectedUser.id);
+        }
       });
   }
 
@@ -116,6 +134,10 @@ export class LatestComponent implements OnInit {
     setTimeout(function () {
       currentUser$.next({ isLoggedIn: true });
     }, 4000);
+  }
+
+  switchOperator(operator) {
+    this.tooltip = this.operator + ' observable';
   }
 
   combineLatest() {
