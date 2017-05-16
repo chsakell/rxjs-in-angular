@@ -30,26 +30,65 @@
       <md-card-title>On source emit..</md-card-title>
       <md-card-content>
         <md-select placeholder="Select user">
-          <md-option *ngFor="let user of allUsers" [value]="user.id">
+          <md-option *ngFor="let user of allUsers" [value]="user.id" (click)="nextUser(user)">
             {{user.name}}
           </md-option>
         </md-select>
+        <button md-icon-button mdTooltip="withLatestFrom observable" [mdTooltipPosition]="'right'">
+          <md-icon [color]="'primary'">info</md-icon>
+        </button>
         <br/>
         <div>
           <md-button-toggle-group #group="mdButtonToggleGroup">
-            <md-button-toggle value="left">
+            <md-button-toggle value="company" (click)="nextOption('company')">
               View Company
               <md-icon [color]="'primary'">card_travel</md-icon>
             </md-button-toggle>
-            <md-button-toggle value="center">
+            <md-button-toggle value="address" (click)="nextOption('address')">
               View Address
               <md-icon [color]="'accent'">add_location</md-icon>
             </md-button-toggle>
-            <md-button-toggle value="right">
+            <md-button-toggle value="posts" (click)="nextOption('posts')">
               View Posts
               <md-icon [color]="'warn'">rss_feed</md-icon>
             </md-button-toggle>
           </md-button-toggle-group>
+          <button md-icon-button mdTooltip="the source observable" [mdTooltipPosition]="'right'">
+          <md-icon [color]="'primary'">info</md-icon>
+        </button>
+        </div>
+      </md-card-content>
+      <md-card-content [ngSwitch]="selectedOption$ | async">
+        <div *ngSwitchCase="'company'">
+          <!--{{(selectedUser$ | async)?.company.name}}-->
+          <md-card *ngIf="selectedUser">
+            <md-card-title-group>
+              <md-card-title>{{selectedUser?.company.name}}</md-card-title>
+              <md-card-subtitle>{{selectedUser?.company.catchPhrase}}</md-card-subtitle>
+              <md-card-subtitle>{{selectedUser?.company.bs}}</md-card-subtitle>
+            </md-card-title-group>
+          </md-card>
+
+        </div>
+        <div *ngSwitchCase="'address'">
+          <md-card *ngIf="selectedUser">
+            <md-card-title-group>
+              <md-card-title>{{selectedUser?.address.street}}</md-card-title>
+              <md-card-subtitle>{{selectedUser?.address.suite}}</md-card-subtitle>
+              <md-card-subtitle>{{selectedUser?.address.city}}</md-card-subtitle>
+            </md-card-title-group>
+          </md-card>
+
+        </div>
+        <div *ngSwitchCase="'posts'">
+          <div *ngFor="let post of selectedUserPosts" class="card-post-item">
+            <md-card>
+              <md-card-title-group>
+                <md-card-title>{{post.title}}</md-card-title>
+                <md-card-subtitle>{{post.body}}</md-card-subtitle>
+              </md-card-title-group>
+            </md-card>
+          </div>
         </div>
       </md-card-content>
       <md-card-content>

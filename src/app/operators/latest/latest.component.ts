@@ -2,7 +2,8 @@ import { DataService } from './../../shared/data.service';
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
-import { MOCK_USERS } from '../../shared/data';
+import { MOCK_USERS, MOCK_POSTS } from '../../shared/data';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-latest',
@@ -11,15 +12,22 @@ import { MOCK_USERS } from '../../shared/data';
 })
 export class LatestComponent implements OnInit {
 
+  // Example 1
   sliderValue = 0;
   sliderDisabled = false;
   users: any[] = [];
   allUsers: any[] = MOCK_USERS;
 
+  // Example 2
+  selectedUser$ = new Subject();
+  selectedOption$ = new Subject();
+  selectedUser: any;
+  selectedUserPosts: any[] = [];
+
   constructor(private ds: DataService) { }
 
   ngOnInit() {
-    this.startZipping(10);
+    this.startWithLatestFrom();
     // this.zip();
     // this.withLatestFrom();
     // this.withLatestFromExample();
@@ -62,6 +70,25 @@ export class LatestComponent implements OnInit {
       error => console.log(error),
       () => this.sliderDisabled = true);
 
+  }
+
+  startWithLatestFrom() {
+    this.selectedOption$
+      .withLatestFrom(this.selectedUser$)
+      .subscribe(([option, user]) => {
+        console.log('option', option);
+        console.log('user', user);
+        this.selectedUser = user;
+        this.selectedUserPosts = _.filter(MOCK_POSTS, (p: any) => p.userId === this.selectedUser.id);
+      });
+  }
+
+  nextOption(option) {
+    this.selectedOption$.next(option);
+  }
+
+  nextUser(user) {
+    this.selectedUser$.next(user);
   }
 
   zip() {
