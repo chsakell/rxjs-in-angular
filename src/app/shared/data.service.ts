@@ -13,9 +13,13 @@ export class DataService {
 
     }
 
-    getPosts(): Observable<any> {
+    getPosts(size?: number): Observable<any> {
+        return Observable.from(MOCK_POSTS).take(4).toArray();
+    }
 
-        return Observable.from(MOCK_POSTS);
+    // returns an observable of an array
+    getAllPosts() {
+        return Observable.of(MOCK_POSTS);
     }
 
     wsOnUser(delay, size?: number): Observable<any> {

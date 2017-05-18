@@ -1,3 +1,4 @@
+import { MergeComponent } from './operators/merge/merge.component';
 import { LatestComponent } from './operators/latest/latest.component';
 import { OperatorsComponent } from './operators/operators.component';
 import { SubjectsComponent } from './subjects/subjects.component';
@@ -15,5 +16,6 @@ export const APP_ROUTES: Routes = [
     { path: 'hot-and-cold-observables', component: HotAndColdComponent },
     { path: 'subjects', component: SubjectsComponent },
     { path: 'operators', component: OperatorsComponent },
-    { path: 'latest', component: LatestComponent }
+    { path: 'latest', component: LatestComponent },
+    { path: 'merge', component: MergeComponent }
 ];

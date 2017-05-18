@@ -24,6 +24,7 @@ import {
 import 'hammerjs';
 import { HomeComponent } from './home/home.component';
 import { LatestComponent } from './operators/latest/latest.component';
+import { MergeComponent } from './operators/merge/merge.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LatestComponent } from './operators/latest/latest.component';
     HotAndColdComponent,
     OperatorsComponent,
     HomeComponent,
-    LatestComponent
+    LatestComponent,
+    MergeComponent
   ],
   imports: [
     BrowserModule,

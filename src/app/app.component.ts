@@ -19,6 +19,7 @@ export class AppComponent {
     { name: 'Hot & Cold Observables', route: 'hot-and-cold-observables' },
     { name: 'Subjects', route: 'subjects' },
     { name: 'Operators', route: 'operators' },
-    { name: 'Latest', route: 'latest' }
+    { name: 'Latest', route: 'latest' },
+    { name: 'Merge', route: 'merge' }
   ];
 }
