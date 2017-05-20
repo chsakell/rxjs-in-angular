@@ -24,7 +24,7 @@ export class DataService {
 
     wsOnUser(delay, size?: number): Observable<any> {
         return Observable
-            .interval(delay).take(size ? MOCK_USERS.length : size)
+            .interval(delay).take(size === undefined ? MOCK_USERS.length : size)
             .map(i => MOCK_USERS[i]);
     }
 }

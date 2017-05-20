@@ -1,0 +1,21 @@
+<div class="card-container">
+  <md-card>
+    <md-card-subtitle>Merge operator</md-card-subtitle>
+    <md-card-title>Different streams may emit at different times</md-card-title>
+    <md-card-content>
+        <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0" [max]="10" step="1" #slider1></md-slider>
+        <md-slider class="app-slider" [color]="'warn'" [value]="secondSliderValue" [disabled]="secondSliderDisabled" thumbLabel [min]="0" [max]="5" step="1" #slider1></md-slider>
+    </md-card-content>
+    <md-card-content>
+      <button md-raised-button [color]="user.color" *ngFor="let user of users" class="margin-4"> {{user.name}}</button>
+    </md-card-content>
+    <md-card-content>
+      <p>Merges all the observable sequences and Promises into a single observable sequence.</p>
+      <md-card-actions>
+        <button md-raised-button (click)="restart()">Restart</button>
+      </md-card-actions>
+    </md-card-content>
+    <md-card-footer>
+      <md-progress-bar mode="determinate"></md-progress-bar>
+    </md-card-footer>
+  </md-card>

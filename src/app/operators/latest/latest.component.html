@@ -4,8 +4,7 @@
       <md-card-subtitle>Zip Observables</md-card-subtitle>
       <md-card-title>Simple way to combine observables</md-card-title>
       <md-card-content>
-        <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0"
-          [max]="10" step="1" #slider1></md-slider>
+        <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0" [max]="10" step="1" #slider1></md-slider>
         <md-list dense>
           <md-list-item *ngFor="let user of users">
             <h3 md-line>{{user.username}}</h3>
