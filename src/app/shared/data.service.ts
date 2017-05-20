@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { MOCK_USERS, MOCK_POSTS } from './data';
 import { Injectable } from '@angular/core';
+import * as _ from 'lodash';
 
 @Injectable()
 export class DataService {
@@ -13,8 +14,24 @@ export class DataService {
 
     }
 
+    getUsersSync(id?: number) {
+        if (id === undefined) {
+            return MOCK_USERS;
+        } else {
+            return _.find(MOCK_USERS, u => u.id === id);
+        }
+    }
+
     getPosts(size?: number): Observable<any> {
         return Observable.from(MOCK_POSTS).take(4).toArray();
+    }
+
+    getPostsSync(id?: number) {
+        if (id === undefined) {
+            return MOCK_POSTS;
+        } else {
+            return _.find(MOCK_POSTS, p => p.id === id);
+        }
     }
 
     // returns an observable of an array

@@ -2,7 +2,6 @@ import { DataService } from './../../shared/data.service';
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
-import { MOCK_USERS, MOCK_POSTS } from '../../shared/data';
 import * as _ from 'lodash';
 
 @Component({
@@ -16,7 +15,6 @@ export class LatestComponent implements OnInit {
   sliderValue = 0;
   sliderDisabled = false;
   users: any[] = [];
-  allUsers: any[] = MOCK_USERS;
 
   // Example 2
   selectedUser$ = new Subject();
@@ -83,7 +81,7 @@ export class LatestComponent implements OnInit {
         if (self.operator === 'withLatestFrom') {
           console.log('withLatestFrom');
           this.selectedUser = user;
-          this.selectedUserPosts = _.filter(MOCK_POSTS, (p: any) => p.userId === this.selectedUser.id);
+          this.selectedUserPosts = _.filter(this.ds.getPostsSync(), (p: any) => p.userId === this.selectedUser.id);
         }
       });
   }
@@ -96,7 +94,7 @@ export class LatestComponent implements OnInit {
         if (self.operator === 'combineLatest') {
           console.log('combineLatest');
           this.selectedUser = user;
-          this.selectedUserPosts = _.filter(MOCK_POSTS, (p: any) => p.userId === this.selectedUser.id);
+          this.selectedUserPosts = _.filter(this.ds.getPostsSync(), (p: any) => p.userId === this.selectedUser.id);
         }
       });
   }

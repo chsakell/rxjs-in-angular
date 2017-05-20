@@ -41,7 +41,7 @@
       <md-card-title>On source emit..</md-card-title>
       <md-card-content>
         <md-select placeholder="Select user" class="md-select--150">
-          <md-option *ngFor="let user of allUsers" [value]="user.id" (click)="nextUser(user)">
+          <md-option *ngFor="let user of ds.getUsersSync()" [value]="user.id" (click)="nextUser(user)">
             {{user.name}}
           </md-option>
         </md-select>

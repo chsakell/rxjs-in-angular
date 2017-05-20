@@ -1,7 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import { DataService } from './../../shared/data.service';
 import { Component, OnInit } from '@angular/core';
-import { MOCK_USERS } from '../../shared/data';
 import * as _ from 'lodash';
 
 @Component({
@@ -66,7 +65,8 @@ export class MergeComponent implements OnInit {
     Observable.timer(5000, 1000).take(5)
       .subscribe(() => {
         const userId = Math.floor((Math.random() * 9) + 1);
-        this.leaveUser$.next(MOCK_USERS[userId]);
+        const user = this.service.getUsersSync(userId);
+        this.leaveUser$.next(user);
         this.secondSliderValue++;
       },
       error => console.log(error),

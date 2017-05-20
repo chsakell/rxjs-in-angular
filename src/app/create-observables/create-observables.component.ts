@@ -1,7 +1,7 @@
+import { DataService } from './../shared/data.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { createInterval$, createSubscriber, take$ } from 'app/shared/utils';
-import { MOCK_USERS } from '../shared/data';
 
 @Component({
   moduleId: module.id,
@@ -36,7 +36,7 @@ export class CreateObservablesComponent implements OnInit {
 
   everySecond$ = createInterval$(1000);
 
-  constructor() { }
+  constructor(private ds: DataService) { }
 
   ngOnInit() {
     this.fromScratch();
@@ -49,12 +49,13 @@ export class CreateObservablesComponent implements OnInit {
   }
 
   fromScratch() {
+    const self = this;
     this.users = [];
     const users$ = new Observable(observer => {
       for (let i = 0; i < 4; i++) {
         setTimeout(function () {
           const userId = Math.floor((Math.random() * 9) + 1);
-          observer.next(MOCK_USERS[userId]);
+          observer.next(self.ds.getUsersSync(userId));
         }, (i + 1) * 2000);
       }
     });
