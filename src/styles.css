@@ -46,3 +46,10 @@
 .margin-4 {
   margin: 4px !important;
 }
+
+.posts-container md-card {
+  display: inline-block !important;
+  margin: 4px;
+  background: #3f51b5;
+  color: #e6e8f6;
+}

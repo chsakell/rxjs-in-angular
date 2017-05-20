@@ -1,3 +1,4 @@
+import { FilterComponent } from './operators/filter/filter.component';
 import { MergeComponent } from './operators/merge/merge.component';
 import { LatestComponent } from './operators/latest/latest.component';
 import { OperatorsComponent } from './operators/operators.component';
@@ -17,5 +18,6 @@ export const APP_ROUTES: Routes = [
     { path: 'subjects', component: SubjectsComponent },
     { path: 'operators', component: OperatorsComponent },
     { path: 'latest', component: LatestComponent },
-    { path: 'merge', component: MergeComponent }
+    { path: 'merge', component: MergeComponent },
+    { path: 'filter', component: FilterComponent }
 ];

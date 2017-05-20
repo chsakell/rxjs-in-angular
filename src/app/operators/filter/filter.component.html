@@ -1,0 +1,24 @@
+<md-card>
+  <md-card-subtitle>Filter</md-card-subtitle>
+  <md-card-title>API call on condition..</md-card-title>
+  
+  <md-card-content>
+    <md-select #selectedUser id="selectedUser" (change)="selectedUser$.next($event.value)" placeholder="Select user" class="md-select--150">
+      <md-option *ngFor="let user of ds.getUsersSync()" [value]="user.id">
+        {{user.name}}
+      </md-option>
+    </md-select>
+    <md-progress-bar mode="indeterminate" class="margin-4" *ngIf="loading"></md-progress-bar>
+    <div class="posts-container">
+      <md-card *ngFor="let post of loadedPosts">
+        {{post.title}}
+      </md-card>
+    </div>
+  </md-card-content>
+  <md-card-content>
+    <p>Filter items emitted by the source Observable by only emitting those that satisfy a specified predicate.</p>
+  </md-card-content>
+  <md-card-footer>
+    <md-progress-bar mode="determinate"></md-progress-bar>
+  </md-card-footer>
+</md-card>

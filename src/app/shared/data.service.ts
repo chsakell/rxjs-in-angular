@@ -34,6 +34,10 @@ export class DataService {
         }
     }
 
+    getUserPosts(userId: number): Observable<any> {
+        return Observable.of(_.filter(MOCK_POSTS, p => p.userId === userId)).delay(2000);
+    }
+
     // returns an observable of an array
     getAllPosts() {
         return Observable.of(MOCK_POSTS);

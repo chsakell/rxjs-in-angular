@@ -25,6 +25,7 @@ import 'hammerjs';
 import { HomeComponent } from './home/home.component';
 import { LatestComponent } from './operators/latest/latest.component';
 import { MergeComponent } from './operators/merge/merge.component';
+import { FilterComponent } from './operators/filter/filter.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MergeComponent } from './operators/merge/merge.component';
     OperatorsComponent,
     HomeComponent,
     LatestComponent,
-    MergeComponent
+    MergeComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
