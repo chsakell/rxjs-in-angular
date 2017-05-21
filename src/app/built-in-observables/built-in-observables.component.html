@@ -1,3 +1,18 @@
-<p>
-  built-in-observables works!
-</p>
+<md-card>
+  <md-card-title-group>
+    <md-card-title>{{seconds}} remained to display dialog..</md-card-title>
+    <md-card-subtitle>Observable.timer</md-card-subtitle>
+  </md-card-title-group>
+  <md-card-content>
+    <p>Creates an Observable that emits a sequence of integers spaced by a given time interval</p>
+  </md-card-content>
+  <md-card-footer>
+    <md-progress-bar mode="determinate"></md-progress-bar>
+  </md-card-footer>
+</md-card>
+
+<ng-template>
+  <h4>I'm a template dialog. I've been opened using an interval Observable!</h4>
+  <hr/>
+  <md-chip color="primary" selected="true"><i>Observable.interval(5000).take(1)</i></md-chip>
+</ng-template>
