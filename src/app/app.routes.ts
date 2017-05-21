@@ -1,3 +1,4 @@
+import { ScanComponent } from './operators/scan/scan.component';
 import { FilterComponent } from './operators/filter/filter.component';
 import { MergeComponent } from './operators/merge/merge.component';
 import { LatestComponent } from './operators/latest/latest.component';
@@ -19,5 +20,6 @@ export const APP_ROUTES: Routes = [
     { path: 'operators', component: OperatorsComponent },
     { path: 'latest', component: LatestComponent },
     { path: 'merge', component: MergeComponent },
-    { path: 'filter', component: FilterComponent }
+    { path: 'filter', component: FilterComponent },
+    { path: 'scan', component: ScanComponent }
 ];

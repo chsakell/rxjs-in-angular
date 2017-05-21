@@ -833,3 +833,30 @@ export const MOCK_POSTS = [
         body: 'cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut'
     }
 ];
+
+export const MOCK_IMAGES = [
+    {
+        id: 1,
+        src: '/assets/images/angular-2.jpg',
+        title: 'Sample Angular 2 title',
+        date: new Date(2017, 10, 4),
+        likes: 0,
+        dislikes: 0
+    },
+    {
+        id: 2,
+        src: 'assets/images/microsoft.jpg',
+        title: 'Sample Microsoft title',
+        date: new Date(2017, 2, 9),
+        likes: 0,
+        dislikes: 0
+    },
+    {
+        id: 3,
+        src: 'assets/images/reactive.jpg',
+        title: 'Sample Reactive title',
+        date: new Date(2016, 5, 14),
+        likes: 0,
+        dislikes: 0
+    }
+];

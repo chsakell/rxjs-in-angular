@@ -20,10 +20,10 @@ export class AppComponent {
     { name: 'Subjects', route: 'subjects' },
     { name: 'Latest', route: 'latest' },
     { name: 'Merge', route: 'merge' },
-    { name: 'Filter', route: 'filter' }
+    { name: 'Filter', route: 'filter' },
+    { name: 'Scan', route: 'scan' }
     /*
      TODO..
-    { name: 'Scan', route: 'scan' },
     { name: 'Reduce', route: 'reduce' },
     { name: 'Concat', route: 'concat' }
     { name: 'Buffer', route: 'buffer' },

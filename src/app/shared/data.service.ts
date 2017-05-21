@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { MOCK_USERS, MOCK_POSTS } from './data';
+import { MOCK_USERS, MOCK_POSTS, MOCK_IMAGES } from './data';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 
@@ -47,5 +47,9 @@ export class DataService {
         return Observable
             .interval(delay).take(size === undefined ? MOCK_USERS.length : size)
             .map(i => MOCK_USERS[i]);
+    }
+
+    getImagesSync() {
+        return MOCK_IMAGES;
     }
 }
