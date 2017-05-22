@@ -1,8 +1,10 @@
+import { DataService } from './../shared/data.service';
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MdDialog, MdDialogConfig } from "@angular/material";
-
+import { MdDialog, MdDialogConfig } from '@angular/material';
+import * as _ from 'lodash';
+ 
 @Component({
   selector: 'app-built-in-observables',
   templateUrl: './built-in-observables.component.html',
@@ -26,13 +28,36 @@ export class BuiltInObservablesComponent implements OnInit {
       left: '',
       right: ''
     }
-  }
+  };
 
-  constructor(public dialog: MdDialog) { }
+  ofEmittedVal: any;
+  ofEmittedIsArray: boolean;
+  fromEmittedVal: any;
+  fromEmittedIsArray: boolean;
+  fromEmittedIsObject: boolean;
+
+  constructor(public dialog: MdDialog, public ds: DataService) { }
 
   ngOnInit() {
     this.runTimer();
     this.openTemplate();
+    this.of();
+    this.from();
+  }
+
+  of() {
+    this.ds.getAllPosts().subscribe(val => {
+      this.ofEmittedVal = _.cloneDeep(val);
+      this.ofEmittedIsArray = val instanceof Array;
+    });
+  }
+
+  from() {
+    this.ds.getUsers().subscribe(val => {
+      this.fromEmittedVal = val;
+      this.fromEmittedIsArray = val instanceof Array;
+      this.fromEmittedIsObject = val instanceof Object;
+    });
   }
 
   runTimer() {

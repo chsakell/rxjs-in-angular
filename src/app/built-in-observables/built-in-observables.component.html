@@ -11,6 +11,43 @@
   </md-card-footer>
 </md-card>
 
+<md-card>
+  <md-card-title-group>
+    <md-card-title>Operator Of</md-card-title>
+    <md-card-subtitle>Observable.of(array)</md-card-subtitle>
+  </md-card-title-group>
+  <md-card-content>
+    <p>Emitted item is array: <strong>{{ofEmittedIsArray}}</strong> Total Items: 
+    <strong>{{ofEmittedVal.length}}</strong></p>
+  </md-card-content>
+  <md-card-content>
+    <p>Converts arguments to an observable sequence.</p>
+  </md-card-content>
+  <md-card-footer>
+    <md-progress-bar mode="determinate"></md-progress-bar>
+  </md-card-footer>
+</md-card>
+
+<md-card>
+  <md-card-title-group>
+    <md-card-title>Operator From</md-card-title>
+    <md-card-subtitle>Observable.from(array)</md-card-subtitle>
+  </md-card-title-group>
+  <md-card-content>
+    <p>Emitted item is array: <strong>{{fromEmittedIsArray}}</strong> Emitted item is Object:
+      <strong>{{fromEmittedIsObject}}</strong> </p>
+      <p>
+        Object:  <md-chip color="warn">{{fromEmittedVal | json}}</md-chip>
+      </p>
+  </md-card-content>
+  <md-card-content>
+    <p>Converts arguments to an observable sequence.</p>
+  </md-card-content>
+  <md-card-footer>
+    <md-progress-bar mode="determinate"></md-progress-bar>
+  </md-card-footer>
+</md-card>
+
 <ng-template>
   <h4>I'm a template dialog. I've been opened using an interval Observable!</h4>
   <hr/>
