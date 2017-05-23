@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class HotAndColdComponent implements OnInit {
 
+  subscribers: any[] = ['first', 'second', 'third', 'forth'];
+
   constructor() { }
 
   ngOnInit() {
@@ -34,20 +36,6 @@ export class HotAndColdComponent implements OnInit {
     setTimeout(function () {
       interval$.subscribe(createSubscriber('two'));
     }, 4000);
-  }
-
-  test_02() {
-    const socket = { on: () => { } };
-
-    const chatMessages$ = new Observable(observer => {
-      console.log('subscribed');
-      observer.next('hello world');
-    }).publish();
-
-    chatMessages$.connect();
-
-    chatMessages$.subscribe(createSubscriber('one'));
-    chatMessages$.subscribe(createSubscriber('two'));
   }
 
   test_03() {

@@ -20,10 +20,11 @@
   background-color: gray;
 }
 
-.card-container .mat-list[dense] .mat-list-item, .mat-nav-list[dense] .mat-list-item {
-    display: inline-block;
-    background-color: #ffd740;
-    margin: 2px;
+.card-container .mat-list[dense] .mat-list-item,
+.mat-nav-list[dense] .mat-list-item {
+  display: inline-block;
+  background-color: #FF5722;
+  margin: 2px;
 }
 
 #mouseEventCard {
@@ -40,7 +41,7 @@
 }
 
 .md-select--150 {
-  width:150px;
+  width: 150px;
 }
 
 .margin-4 {
@@ -52,4 +53,13 @@
   margin: 4px;
   background: #3f51b5;
   color: #e6e8f6;
+}
+
+.inline-block--50 {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  margin: 4px 0 4px -4px;
+  padding: 10px;
+  border: 1px solid #bdbdbd;
 }
