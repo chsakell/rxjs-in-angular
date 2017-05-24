@@ -1,6 +1,7 @@
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-hot-and-cold',
@@ -9,47 +10,67 @@ import { Observable } from 'rxjs';
 })
 export class HotAndColdComponent implements OnInit {
 
-  subscribers: any[] = ['first', 'second', 'third', 'forth'];
+  coldInterval$ = Observable.interval(1000).skip(1).take(10);
+  hotInterval$ = Observable.interval(1000).skip(1).take(20).publish();
+  hotIntervalSlider: any = {
+    sliderValue: 0, sliderDisabled: true, sliderVisible: true
+  };
+
+  coldSubscribers: any[] = [
+    { index: 1, sliderValue: 0, sliderDisabled: true, sliderVisible: false },
+    { index: 2, sliderValue: 0, sliderDisabled: true, sliderVisible: false },
+    { index: 3, sliderValue: 0, sliderDisabled: true, sliderVisible: false },
+    { index: 4, sliderValue: 0, sliderDisabled: true, sliderVisible: false }
+  ];
+
+  hotSubscribers: any[] = [
+    { index: 1, sliderValue: 0, sliderDisabled: true, sliderVisible: false },
+    { index: 2, sliderValue: 0, sliderDisabled: true, sliderVisible: false },
+    { index: 3, sliderValue: 0, sliderDisabled: true, sliderVisible: false },
+    { index: 4, sliderValue: 0, sliderDisabled: true, sliderVisible: false }
+  ];
 
   constructor() { }
 
-  ngOnInit() {
-    // this.test_01();
-    // this.test_02();
-    // this.test_03();
-    // this.test_04();
-    // this.test_05();
+  ngOnInit() { }
+
+  coldSubscribe(subscriberIndex: number) {
+    const subscriber = _.find(this.coldSubscribers, s => s.index === subscriberIndex);
+    subscriber.sliderDisabled = false;
+    subscriber.sliderVisible = true;
+
+    this.coldInterval$.subscribe(val => {
+      subscriber.sliderValue = val;
+    },
+      error => console.log(error),
+      () => {
+        subscriber.sliderDisabled = true;
+      });
   }
 
-  test_01() {
-    const interval$ = Observable.interval(1000)
-      .take(10)
-      .publish();
+  connect() {
+    this.hotInterval$.connect();
 
-    // start executing..
-    interval$.connect();
-
-    setTimeout(function () {
-      interval$.subscribe(createSubscriber('one'));
-    }, 500);
-
-    setTimeout(function () {
-      interval$.subscribe(createSubscriber('two'));
-    }, 4000);
+    this.hotInterval$.subscribe(val => {
+      this.hotIntervalSlider.sliderDisabled = false;
+      this.hotIntervalSlider.sliderValue = val;
+    },
+      error => console.log(error),
+      () => this.hotIntervalSlider.sliderDisabled = true)
   }
 
-  test_03() {
-    const simple$ = new Observable(observer => {
-      observer.next('one');
-      observer.next('two');
-      observer.complete();
-    });
+  hotSubscribe(subscriberIndex: number) {
+    const subscriber = _.find(this.hotSubscribers, s => s.index === subscriberIndex);
+    subscriber.sliderDisabled = false;
+    subscriber.sliderVisible = true;
 
-    const published$ = simple$.publishLast();
-
-    published$.subscribe(createSubscriber('one'));
-    published$.connect();
-    published$.subscribe(createSubscriber('two'));
+    this.hotInterval$.subscribe(val => {
+      subscriber.sliderValue = val;
+    },
+      error => console.log(error),
+      () => {
+        subscriber.sliderDisabled = true;
+      });
   }
 
   test_04() {

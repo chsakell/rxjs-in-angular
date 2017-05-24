@@ -48,6 +48,10 @@
   margin: 4px !important;
 }
 
+.align-center {
+  text-align: center;
+}
+
 .posts-container md-card {
   display: inline-block !important;
   margin: 4px;
