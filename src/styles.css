@@ -20,6 +20,22 @@
   background-color: gray;
 }
 
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-16 {
+  padding: 16px !important;
+}
+
+.padding-left--16 {
+  padding-left: 16px;
+}
+
+.margin-right--16 {
+  margin-right: 16px !important;
+}
+
 .card-container .mat-list[dense] .mat-list-item,
 .mat-nav-list[dense] .mat-list-item {
   display: inline-block;
@@ -50,6 +66,10 @@
 
 .align-center {
   text-align: center;
+}
+
+.align-right {
+  text-align: right;
 }
 
 .posts-container md-card {
