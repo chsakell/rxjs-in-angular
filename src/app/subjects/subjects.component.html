@@ -50,19 +50,17 @@
     </md-tab>
     <md-tab>
       <ng-template md-tab-label>About</ng-template>
-      <div class="tab-content">
-        About sujects..
+      <div class="tab-content documentation">
+        A Subject is a sort of bridge or proxy that is available in some implementations of ReactiveX that acts both as an observer and as an Observable. Because it is an observer, it can subscribe to one or more Observables, and because it is an Observable, it can pass through the items it observes by reemitting them, and it can also emit new items. Because a Subject subscribes to an Observable, it will trigger that Observable to begin emitting items (if that Observable is “cold” — that is, if it waits for a subscription before it begins to emit items). This can have the effect of making the resulting Subject a “hot” Observable variant of the original “cold” Observable.
       </div>
     </md-tab>
     <md-tab>
       <ng-template md-tab-label>Sample Code</ng-template>
       <div class="tab-content">
-        Source code..
+        <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
       </div>
     </md-tab>
   </md-tab-group>
-
-
   <md-card-footer>
     <md-progress-bar mode="determinate"></md-progress-bar>
   </md-card-footer>

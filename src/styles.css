@@ -99,3 +99,9 @@
 .tab-content {
   padding: 6px;
 }
+
+.documentation {
+  background: #F0F0F0;
+  padding: 1.5em;
+  font-family: serif;
+}

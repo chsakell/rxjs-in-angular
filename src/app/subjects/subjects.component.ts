@@ -1,21 +1,48 @@
 import { createSubscriber } from 'app/shared/utils';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { Observable, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } from 'rxjs';
+
+import { HighlightJsService } from 'angular2-highlight-js';
 
 @Component({
   selector: 'app-subjects',
   templateUrl: './subjects.component.html',
   styleUrls: ['./subjects.component.css']
 })
-export class SubjectsComponent implements OnInit {
+export class SubjectsComponent implements OnInit, AfterViewInit {
 
   userStatus$ = new BehaviorSubject({ user: { isLoggedIn: false, name: '' } });
   isLoggedIn$ = this.userStatus$.map((u: any) => u.user);
 
-  constructor() { }
+  sampleCode = `
+  <pre>
+    <code class="typescript highlight">
+        userStatus$ = new BehaviorSubject({ user: { isLoggedIn: false, name: '' } });
+        isLoggedIn$ = this.userStatus$.map((u: any) => u.user);
+
+        trackUser() {
+          this.isLoggedIn$.subscribe(status => console.log(status));
+        }
+
+        signin(username, password) {
+          this.userStatus$.next({ user: { isLoggedIn: true, name: username } });
+        }
+
+        signout() {
+          this.userStatus$.next({ user: { isLoggedIn: false, name: '' } });
+        }
+    </code>
+</pre>
+        `;
+
+  constructor(private el: ElementRef, private service: HighlightJsService) { }
 
   ngOnInit() {
     this.trackUser();
+  }
+
+  ngAfterViewInit() {
+    // this.service.highlight(this.el.nativeElement.querySelector('.typescript'), true);
   }
 
   trackUser() {
@@ -23,11 +50,11 @@ export class SubjectsComponent implements OnInit {
   }
 
   signin(username, password) {
-    this.userStatus$.next({ user : { isLoggedIn: true, name: username } });
+    this.userStatus$.next({ user: { isLoggedIn: true, name: username } });
   }
 
   signout() {
-    this.userStatus$.next({ user: { isLoggedIn: false, name: '' }});
+    this.userStatus$.next({ user: { isLoggedIn: false, name: '' } });
   }
 
   test_02() {

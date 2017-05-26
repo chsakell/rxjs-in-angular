@@ -21,13 +21,14 @@ import {
   OverlayContainer
 } from '@angular/material';
 
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+
 import 'hammerjs';
 import { HomeComponent } from './home/home.component';
 import { LatestComponent } from './operators/latest/latest.component';
 import { MergeComponent } from './operators/merge/merge.component';
 import { FilterComponent } from './operators/filter/filter.component';
 import { ScanComponent } from './operators/scan/scan.component';
-
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ScanComponent } from './operators/scan/scan.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HighlightJsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTES),
     MaterialModule,
@@ -56,6 +58,7 @@ import { ScanComponent } from './operators/scan/scan.component';
   ],
   providers: [
     DataService,
+    HighlightJsService,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],
   bootstrap: [AppComponent]
