@@ -95,3 +95,7 @@
 .mat-nav-list .mat-list-item {
   border-bottom: 2px solid #607D8B;
 }
+
+.tab-content {
+  padding: 6px;
+}

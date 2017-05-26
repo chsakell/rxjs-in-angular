@@ -1,46 +1,68 @@
 <md-card class="no-padding">
   <md-toolbar color="primary">Subjects demo</md-toolbar>
-  <div *ngIf="(isLoggedIn$ | async)?.name as user; else loggedIn;">
-    <md-card-content class="padding-16">
-      <md-input-container class="demo-full-width">
-        <input mdInput placeholder="Welcome user.." disabled [value]="user">
-      </md-input-container>
-    </md-card-content>
-    <md-card-content>
-      <md-card-actions class="margin-right--16 align-right">
-        <button md-raised-button [color]="'warn'" (click)="signout()">Logout</button>
-      </md-card-actions>
-    </md-card-content>
-  </div>
-  <ng-template #loggedIn>
-    <md-card-content class="padding-16">
-      <form>
-        <md-input-container class="demo-full-width">
-          <input mdInput placeholder="Enter your credentials.." disabled value="chsakell's blog">
-        </md-input-container>
-        <table cellspacing="0" class="full-width">
-          <tr>
-            <td>
-              <md-input-container class="full-width">
-                <input mdInput placeholder="username" #username>
+
+  <md-tab-group class="demo-tab-group" md-stretch-tabs>
+    <md-tab>
+      <ng-template md-tab-label>Example</ng-template>
+      <div class="tab-content">
+        <div *ngIf="(isLoggedIn$ | async)?.name as user; else loggedIn;">
+          <md-card-content class="padding-16">
+            <md-input-container class="demo-full-width">
+              <input mdInput placeholder="Welcome user.." disabled [value]="user">
+            </md-input-container>
+          </md-card-content>
+          <md-card-content>
+            <md-card-actions class="margin-right--16 align-right">
+              <button md-raised-button [color]="'warn'" (click)="signout()">Logout</button>
+            </md-card-actions>
+          </md-card-content>
+        </div>
+        <ng-template #loggedIn>
+          <md-card-content class="padding-16">
+            <form>
+              <md-input-container class="demo-full-width">
+                <input mdInput placeholder="Enter your credentials.." disabled value="chsakell's blog">
               </md-input-container>
-            </td>
-            <td>
-              <md-input-container class="full-width">
-                <input mdInput placeholder="password" type="password" #password>
-              </md-input-container>
-            </td>
-          </tr>
-        </table>
-      </form>
-    </md-card-content>
-    <md-card-content>
-      <p class="padding-left--16">Subject act both as an Observable and an Observer</p>
-      <md-card-actions class="margin-right--16 align-right">
-        <button md-raised-button [color]="'primary'" (click)="signin(username.value, password.value)">Sign In</button>
-      </md-card-actions>
-    </md-card-content>
-  </ng-template>
+              <table cellspacing="0" class="full-width">
+                <tr>
+                  <td>
+                    <md-input-container class="full-width">
+                      <input mdInput placeholder="username" #username>
+                    </md-input-container>
+                  </td>
+                  <td>
+                    <md-input-container class="full-width">
+                      <input mdInput placeholder="password" type="password" #password>
+                    </md-input-container>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </md-card-content>
+          <md-card-content>
+            <p class="padding-left--16">Subject act both as an Observable and an Observer</p>
+            <md-card-actions class="margin-right--16 align-right">
+              <button md-raised-button [color]="'primary'" (click)="signin(username.value, password.value)">Sign In</button>
+            </md-card-actions>
+          </md-card-content>
+        </ng-template>
+      </div>
+    </md-tab>
+    <md-tab>
+      <ng-template md-tab-label>About</ng-template>
+      <div class="tab-content">
+        About sujects..
+      </div>
+    </md-tab>
+    <md-tab>
+      <ng-template md-tab-label>Sample Code</ng-template>
+      <div class="tab-content">
+        Source code..
+      </div>
+    </md-tab>
+  </md-tab-group>
+
+
   <md-card-footer>
     <md-progress-bar mode="determinate"></md-progress-bar>
   </md-card-footer>
