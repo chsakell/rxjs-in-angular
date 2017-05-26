@@ -1,15 +1,10 @@
 <md-sidenav-container class="demo-root" fullscreen>
   <md-sidenav #start>
     <md-nav-list>
-      <a *ngFor="let navItem of navItems"
-         md-list-item
-         (click)="start.close()"
-         [routerLink]="[navItem.route]">
+      <a *ngFor="let navItem of navItems" md-list-item (click)="start.close()" [routerLink]="[navItem.route]">
         {{navItem.name}}
       </a>
-      <hr>
     </md-nav-list>
-    <button md-button (click)="start.close()">CLOSE</button>
   </md-sidenav>
   <div>
     <md-toolbar color="primary">

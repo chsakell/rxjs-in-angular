@@ -9,24 +9,25 @@ import { Observable, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } fro
 })
 export class SubjectsComponent implements OnInit {
 
+  userStatus$ = new BehaviorSubject({ user: { isLoggedIn: false, name: '' } });
+  isLoggedIn$ = this.userStatus$.map((u: any) => u.user);
+
   constructor() { }
 
   ngOnInit() {
-    // this.test_01();
-    // this.test_02();
-    // this.test_03();
-    // this.test_04();
-    // this.test_05();
-    // this.test_06();
+    this.trackUser();
   }
 
-  test_01() {
-    const simple$ = new Subject();
-    simple$.subscribe(createSubscriber('simple$'));
+  trackUser() {
+    this.isLoggedIn$.subscribe(status => console.log(status));
+  }
 
-    simple$.next('hello');
-    simple$.next('world');
-    simple$.complete();
+  signin(username, password) {
+    this.userStatus$.next({ user : { isLoggedIn: true, name: username } });
+  }
+
+  signout() {
+    this.userStatus$.next({ user: { isLoggedIn: false, name: '' }});
   }
 
   test_02() {
