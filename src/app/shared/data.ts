@@ -864,13 +864,13 @@ export const MOCK_IMAGES = [
 export const MOCK_PRODUCTS = [
     {
         id: 1,
-        image: '/assets/images/sonyexperiaxa1.jpg',
+        image: '/assets/images/sonyxperiaxa1.jpg',
         title: 'Sony Xperia XA1',
         price: 444.22
     },
     {
         id: 2,
-        image: 'assets/images/smsunggalaxya72017.jpg',
+        image: 'assets/images/samsunggalaxya72017.jpg',
         title: 'Samsung Galaxy A7 2017',
         price: 510,
     },

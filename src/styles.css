@@ -105,3 +105,20 @@
   padding: 1.5em;
   font-family: serif;
 }
+
+.product-item {
+  background: #607d8b;
+  color: white;
+}
+
+.product-item-selected {
+  background: #ff5722 !important;
+}
+
+.product-item img {
+  width: 100px;
+}
+
+.product-details {
+  padding: 5px;
+}

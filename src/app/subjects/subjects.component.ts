@@ -1,5 +1,5 @@
 import { createSubscriber } from 'app/shared/utils';
-import { Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } from 'rxjs';
 
 import { HighlightJsService } from 'angular2-highlight-js';
@@ -9,7 +9,7 @@ import { HighlightJsService } from 'angular2-highlight-js';
   templateUrl: './subjects.component.html',
   styleUrls: ['./subjects.component.css']
 })
-export class SubjectsComponent implements OnInit, AfterViewInit {
+export class SubjectsComponent implements OnInit {
 
   userStatus$ = new BehaviorSubject({ user: { isLoggedIn: false, name: '' } });
   isLoggedIn$ = this.userStatus$.map((u: any) => u.user);
@@ -39,10 +39,6 @@ export class SubjectsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.trackUser();
-  }
-
-  ngAfterViewInit() {
-    // this.service.highlight(this.el.nativeElement.querySelector('.typescript'), true);
   }
 
   trackUser() {
