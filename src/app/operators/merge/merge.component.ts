@@ -21,6 +21,22 @@ export class MergeComponent implements OnInit {
 
   source$: Observable<any>;
 
+  sampleCode = `
+  <pre>
+    <code class="typescript highlight">
+    enterUser$: Subject<any> = new Subject();
+    leaveUser$: Subject<any> = new Subject();
+
+    this.source$ = Observable.merge(
+      this.enterUser$.map(user => new UserEvent('Enter', user)),
+      this.leaveUser$.map(user => new UserEvent('Leave', user))
+    );
+
+    this.source$.subscribe((event) => this.processUser(event));
+    </code>
+</pre>
+        `;
+
   constructor(public service: DataService) { }
 
   ngOnInit() {

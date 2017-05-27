@@ -1,5 +1,5 @@
 import { createSubscriber } from 'app/shared/utils';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import * as _ from 'lodash';
 
@@ -9,6 +9,12 @@ import * as _ from 'lodash';
   styleUrls: ['./hot-and-cold.component.css']
 })
 export class HotAndColdComponent implements OnInit {
+
+  @ViewChild('mouseEventCard', { read: ElementRef })
+  mouseEventCard: ElementRef;
+  mouseEventSubscription$: Subscription;
+  mouseMovesEvent$: Observable<MouseEvent>;
+  isListening = false;
 
   coldInterval$ = Observable.interval(1000).skip(1).take(10);
   hotInterval$ = Observable.interval(1000).skip(1).take(20).publish();
@@ -33,6 +39,48 @@ export class HotAndColdComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
+  toggleMouseMoveEvent() {
+    this.isListening = !this.isListening;
+    if (!this.isListening) {
+      this.mouseEventSubscription$.unsubscribe();
+      return;
+    }
+    // The hot observable
+    const self = this;
+    this.mouseMovesEvent$ = Observable.fromEvent(this.mouseEventCard.nativeElement, 'mousemove');
+    const context: CanvasRenderingContext2D = this.mouseEventCard.nativeElement.getContext('2d');
+    self.mouseEventSubscription$ = this.mouseMovesEvent$.subscribe(event => {
+      const pos = this.getMousePos(this.mouseEventCard.nativeElement, event);
+      const posx = pos.x;
+      const posy = pos.y;
+      context.fillStyle = '#3f51b5';
+      context.fillRect(posx - 2, posy - 2, 2, 2);
+
+      setTimeout(function () {
+        context.fillStyle = 'white';
+        context.fillRect(posx - 2, posy - 2, 2, 2);
+      }, 2000);
+    });
+  }
+
+
+  getMousePos(canvas, evt) {
+    const rect = canvas.getBoundingClientRect(), // abs. size of element
+      scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for X
+      scaleY = canvas.height / rect.height;  // relationship bitmap vs. element for Y
+
+    return {
+      x: (evt.clientX - rect.left) * scaleX,   // scale mouse coordinates after they have
+      y: (evt.clientY - rect.top) * scaleY     // been adjusted to be relative to element
+    };
+  }
+
+  unsubscribeFromMouseMoveEvent() {
+    if (this.mouseEventSubscription$) {
+
+    }
+  }
 
   coldSubscribe(subscriberIndex: number) {
     const subscriber = _.find(this.coldSubscribers, s => s.index === subscriberIndex);

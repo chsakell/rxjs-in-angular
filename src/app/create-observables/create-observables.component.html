@@ -1,50 +1,115 @@
 <div class="card-container">
   <md-card>
-    <md-card-subtitle>Create Observable from scratch</md-card-subtitle>
-    <md-card-title>The Observer function</md-card-title>
-    <md-card-content>
-      <button md-raised-button *ngFor="let user of users" class="margin-4"> {{user.name}}</button>
-    </md-card-content>
-    <md-card-content>
-      <p>Observer can emit either new values and errors or complete the observable. Each time we subscribe to the observable,
-        the observer function fires (cold observable)</p>
-      <md-card-actions>
-        <button md-raised-button [color]="'primary'" (click)="randomize()">Randomize</button>
-      </md-card-actions>
-    </md-card-content>
-    <md-card-footer>
-      <md-progress-bar mode="determinate"></md-progress-bar>
-    </md-card-footer>
-  </md-card>
+    <md-toolbar color="primary">Create Observables demo</md-toolbar>
 
-  <md-card>
-    <md-card-subtitle>Observable.of</md-card-subtitle>
-    <md-card-title>The use of the async</md-card-title>
-    <md-card-content>
-      <md-icon class="card-item" [color]="'primary'" *ngFor="let icon of icons$ | async">{{icon}}</md-icon>
-    </md-card-content>
-    <md-card-content>
-      <p>Observable.of will emit the icons as a single item-array. The async keyword is used to subscribe and listen to values emitted by the observable</p>
-    </md-card-content>
-    <md-card-footer>
-      <md-progress-bar mode="determinate"></md-progress-bar>
-    </md-card-footer>
-  </md-card>
+    <md-tab-group class="demo-tab-group" md-stretch-tabs>
+      <md-tab>
+        <ng-template md-tab-label>Example</ng-template>
+        <div class="tab-content">
+          <md-card>
+            <md-card-subtitle>Create Observable from scratch</md-card-subtitle>
+            <md-card-title>The Observer function</md-card-title>
+            <md-card-content>
+              <button md-raised-button *ngFor="let user of users" class="margin-4"> {{user.name}}</button>
+            </md-card-content>
+            <md-card-content>
+              <p>Observer can emit either new values and errors or complete the observable. Each time we subscribe to the observable,
+                the observer function fires (cold observable)</p>
+              <md-card-actions>
+                <button md-raised-button [color]="'primary'" (click)="randomize()">Randomize</button>
+              </md-card-actions>
+            </md-card-content>
+            <md-card-footer>
+              <md-progress-bar mode="determinate"></md-progress-bar>
+            </md-card-footer>
+          </md-card>
 
-  <md-card >
-    <md-card-subtitle>Observable fromEvent</md-card-subtitle>
-    <md-card-title>A Hot observable</md-card-title>
-    <md-card-content>
-      <canvas #mouseEventCard id="mouseEventCard" width="400" height="70"></canvas>
-    </md-card-content>
-    <md-card-content>
-      <p>Hot observables emit values all the time, it's us that we listen only if we subscribe</p>
-      <md-card-actions>
-        <button md-raised-button [color]="'primary'" (click)="toggleMouseMoveEvent()">{{isListening === false ? 'Subscribe' : 'Unsubscribe'}}</button>
-      </md-card-actions>
-    </md-card-content>
-    <md-card-footer>
-      <md-progress-bar mode="determinate"></md-progress-bar>
-    </md-card-footer>
+          <md-card>
+            <md-card-subtitle>Observable.of</md-card-subtitle>
+            <md-card-title>The use of the async</md-card-title>
+            <md-card-content>
+              <md-icon class="card-item" [color]="'primary'" *ngFor="let icon of icons$ | async">{{icon}}</md-icon>
+            </md-card-content>
+            <md-card-content>
+              <p>Observable.of will emit the icons as a single item-array. The async keyword is used to subscribe and listen
+                to values emitted by the observable</p>
+            </md-card-content>
+            <md-card-footer>
+              <md-progress-bar mode="determinate"></md-progress-bar>
+            </md-card-footer>
+          </md-card>
+
+          <md-card>
+            <md-card-title-group>
+              <md-card-title>{{seconds}} remained to display dialog..</md-card-title>
+              <md-card-subtitle>Observable.timer</md-card-subtitle>
+            </md-card-title-group>
+            <md-card-content>
+              <p>Creates an Observable that emits a sequence of integers spaced by a given time interval</p>
+            </md-card-content>
+            <md-card-footer>
+              <md-progress-bar mode="determinate"></md-progress-bar>
+            </md-card-footer>
+          </md-card>
+
+          <md-card>
+            <md-card-title-group>
+              <md-card-title>Operator Of</md-card-title>
+              <md-card-subtitle>Observable.of(array)</md-card-subtitle>
+            </md-card-title-group>
+            <md-card-content>
+              <p>Emitted item is array: <strong>{{ofEmittedIsArray}}</strong> Total Items:
+                <strong>{{ofEmittedVal.length}}</strong></p>
+            </md-card-content>
+            <md-card-content>
+              <p>Converts arguments to an observable sequence.</p>
+            </md-card-content>
+            <md-card-footer>
+              <md-progress-bar mode="determinate"></md-progress-bar>
+            </md-card-footer>
+          </md-card>
+
+          <md-card>
+            <md-card-title-group>
+              <md-card-title>Operator From</md-card-title>
+              <md-card-subtitle>Observable.from(array)</md-card-subtitle>
+            </md-card-title-group>
+            <md-card-content>
+              <p>Emitted item is array: <strong>{{fromEmittedIsArray}}</strong> Emitted item is Object:
+                <strong>{{fromEmittedIsObject}}</strong> </p>
+              <p>
+                Object:
+                <md-chip color="warn">{{fromEmittedVal | json}}</md-chip>
+              </p>
+            </md-card-content>
+            <md-card-content>
+              <p>Converts arguments to an observable sequence.</p>
+            </md-card-content>
+            <md-card-footer>
+              <md-progress-bar mode="determinate"></md-progress-bar>
+            </md-card-footer>
+          </md-card>
+
+          <ng-template #dialog>
+            <h4>I'm a template dialog. I've been opened using an interval Observable!</h4>
+            <hr/>
+            <md-chip color="primary" selected="true"><i>Observable.interval(5000).take(1)</i></md-chip>
+          </ng-template>
+
+        </div>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>About</ng-template>
+        <div class="tab-content documentation">
+          <iframe src="http://reactivex.io/documentation/operators/from.html" width="100%" height="350"></iframe>
+        </div>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>Sample Code</ng-template>
+        <div class="tab-content">
+          <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
+        </div>
+      </md-tab>
+    </md-tab-group>
   </md-card>
 </div>

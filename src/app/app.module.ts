@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CreateObservablesComponent } from './create-observables/create-observables.component';
-import { BuiltInObservablesComponent } from './built-in-observables/built-in-observables.component';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
 import { OperatorsComponent } from './operators/operators.component';
@@ -35,7 +34,6 @@ import { ReduceComponent } from './operators/reduce/reduce.component';
   declarations: [
     AppComponent,
     CreateObservablesComponent,
-    BuiltInObservablesComponent,
     SubjectsComponent,
     HotAndColdComponent,
     OperatorsComponent,

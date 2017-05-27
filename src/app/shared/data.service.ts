@@ -9,9 +9,7 @@ export class DataService {
     constructor() { }
 
     getUsers(): Observable<any> {
-
         return Observable.from(MOCK_USERS);
-
     }
 
     getUsersSync(id?: number) {

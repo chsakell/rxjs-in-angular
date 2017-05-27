@@ -15,7 +15,6 @@ export class AppComponent {
 
   navItems = [
     { name: 'Create Observables', route: 'create-observables' },
-    { name: 'Build-in Observables', route: 'build-in-observables' },
     { name: 'Hot & Cold Observables', route: 'hot-and-cold-observables' },
     { name: 'Subjects', route: 'subjects' },
     { name: 'Latest', route: 'latest' },
