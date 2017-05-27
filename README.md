@@ -1,28 +1,27 @@
-# RxjsInAngular
+# ReactiveX Operators in Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
+## About
 
-## Development server
+Multiple examples using the most used `RxJS operators` with Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![GitHub Logo](/src/assets/images/reactive-store-angular-2.jpg)
 
-## Code scaffolding
+## Installation / Development server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+1. npm install
+1. npm start
+1. navigate to `http://localhost:4200/`
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+## Contribution
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Feel free to contribute and add your own examples in the project. Just fork the repo and send me a pull request. Make sure your example follows the same patterns having the following 3 tabs:
 
-## Running end-to-end tests
+* `Example tab`: this is where you describe the use of an RxJS operator using Angular Material 2 components
+* `About tab` An iframe with link to operator's documentation
+* `Sample code tab`: the most important code lines for your example (syntax highlight is already supported in the project)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![GitHub Logo](/src/assets/images/reactivex-merge.gif)

@@ -12,7 +12,12 @@
         <md-icon class="md-24" >menu</md-icon>
       </button>
       <div class="demo-toolbar">
-        <h1>RxJS Operators in Angular</h1>
+        <h1 [routerLink]="['/']">RxJS in Angular</h1>
+        <span class="example-spacer"></span>
+        <a href="http://chsakell.com/" target="_blank" class="toolbar-link">Blog <md-icon>cast</md-icon></a>
+        <a href="https://twitter.com/chsakellsblog" target="_blank" class="toolbar-link">Twitter <md-icon>volume_up</md-icon></a>
+        <a href="https://www.facebook.com/chsakells.blog" target="_blank" class="toolbar-link">Facebook <md-icon>favorite_border</md-icon></a>
+        <a href="https://github.com/chsakell/rxjs-in-angular" target="_blank" class="toolbar-link">Github <md-icon>code</md-icon></a>
         <button md-button (click)="dark = !dark">{{dark ? 'Light' : 'Dark'}} theme</button>
       </div>
     </md-toolbar>
