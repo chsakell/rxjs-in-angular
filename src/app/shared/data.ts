@@ -860,3 +860,30 @@ export const MOCK_IMAGES = [
         dislikes: 0
     }
 ];
+
+export const MOCK_PRODUCTS = [
+    {
+        id: 1,
+        image: '/assets/images/sonyexperiaxa1.jpg',
+        title: 'Sony Xperia XA1',
+        price: 444.22
+    },
+    {
+        id: 2,
+        image: 'assets/images/smsunggalaxya72017.jpg',
+        title: 'Samsung Galaxy A7 2017',
+        price: 510,
+    },
+    {
+        id: 3,
+        image: 'assets/images/motog4plus.jpg',
+        title: 'Moto G4 Plus',
+        price: 210
+    },
+    {
+        id: 4,
+        image: 'assets/images/samsunggalaxyj7prime.jpg',
+        title: 'Samsung Galaxy J7 Prime',
+        price: 188.90
+    }
+];
