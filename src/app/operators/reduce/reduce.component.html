@@ -6,7 +6,7 @@
       <ng-template md-tab-label>Example</ng-template>
       <div class="tab-content">
         <md-card-content class="padding-16">
-          <md-grid-list cols="2" rowHeight="2:1">
+          <md-grid-list cols="4" rowHeight="2:1">
             <md-grid-tile *ngFor="let product of products" [ngClass]="{'product-item': true, 'product-item-selected': product.selected}">
               <img [src]="product.image" />
               <div class="product-details">
@@ -15,6 +15,9 @@
               </div>
             </md-grid-tile>
           </md-grid-list>
+        </md-card-content>
+        <md-card-content>
+          <p>Find the lowest values among products</p>
         </md-card-content>
       </div>
     </md-tab>

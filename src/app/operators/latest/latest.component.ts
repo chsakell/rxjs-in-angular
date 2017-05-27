@@ -3,6 +3,7 @@ import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import * as _ from 'lodash';
+import { sampleCodeZip, sampleCodeCombine } from 'app/operators/latest/sample-code';
 
 @Component({
   selector: 'app-latest',
@@ -24,15 +25,15 @@ export class LatestComponent implements OnInit {
   operator = 'withLatestFrom';
   tooltip = this.operator + ' observable';
 
+  sampleCodeZip = sampleCodeZip;
+
+  sampleCodeCombine = sampleCodeCombine;
+
   constructor(private ds: DataService) { }
 
   ngOnInit() {
     this.startWithLatestFrom();
     this.startCombineLatest();
-    // this.zip();
-    // this.withLatestFrom();
-    // this.withLatestFromExample();
-    // this.combineLatest();
   }
 
   arrayZip(array1, array2, selector) {

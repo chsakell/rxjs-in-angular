@@ -1,3 +1,4 @@
+import { sampleCode } from './sample-code';
 import { Observable, Subscription, Subject } from 'rxjs';
 import { DataService } from './../../shared/data.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,8 @@ export class FilterComponent implements OnInit {
   userPosts: { [key: number]: any[] } = {};
   loadedPosts: any[] = [];
   loading = false;
+
+  sampleCode = sampleCode;
 
   constructor(private ds: DataService) { }
 
@@ -36,6 +39,4 @@ export class FilterComponent implements OnInit {
         );
       });
   }
-
-
 }

@@ -64,12 +64,20 @@
   margin: 4px !important;
 }
 
+.margin-right-8 {
+  margin-right: 8px !important;
+}
+
 .align-center {
   text-align: center;
 }
 
 .align-right {
   text-align: right;
+}
+
+.align-left {
+  text-align: left;
 }
 
 .posts-container md-card {
@@ -100,15 +108,18 @@
   padding: 16px;
 }
 
+.padding-bottom-0 {
+  padding-bottom: 0px !important;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0px !important;
+}
+
 .documentation {
   background: #F0F0F0;
   padding: 1.5em;
   font-family: serif;
-}
-
-.product-item {
-  background: #607d8b;
-  color: white;
 }
 
 .product-item-selected {

@@ -1,6 +1,7 @@
 import { Observable, Subject, Subscription } from 'rxjs';
 import { DataService } from './../../shared/data.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { sampleCode } from './sample-code';
 import * as _ from 'lodash';
 
 @Component({
@@ -22,6 +23,8 @@ export class ScanComponent implements OnInit, OnDestroy {
 
   dislikesSubject: Subject<number> = new Subject();
   dislikesSubscription: Subscription;
+
+  sampleCode = sampleCode;
 
   constructor(private ds: DataService) { }
 

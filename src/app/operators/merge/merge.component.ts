@@ -2,6 +2,7 @@ import { Observable, Subject } from 'rxjs';
 import { DataService } from './../../shared/data.service';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import { sampleCode } from './sample-code';
 
 @Component({
   selector: 'app-merge',
@@ -21,21 +22,7 @@ export class MergeComponent implements OnInit {
 
   source$: Observable<any>;
 
-  sampleCode = `
-  <pre>
-    <code class="typescript highlight">
-    enterUser$: Subject<any> = new Subject();
-    leaveUser$: Subject<any> = new Subject();
-
-    this.source$ = Observable.merge(
-      this.enterUser$.map(user => new UserEvent('Enter', user)),
-      this.leaveUser$.map(user => new UserEvent('Leave', user))
-    );
-
-    this.source$.subscribe((event) => this.processUser(event));
-    </code>
-</pre>
-        `;
+  sampleCode = sampleCode;
 
   constructor(public service: DataService) { }
 

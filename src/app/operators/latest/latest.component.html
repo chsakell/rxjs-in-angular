@@ -1,33 +1,68 @@
 <div class="card-container">
-  <div>
-    <md-card>
-      <md-card-subtitle>Zip Observables</md-card-subtitle>
-      <md-card-title>Simple way to combine observables</md-card-title>
-      <md-card-content>
-        <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0" [max]="10" step="1" #slider1></md-slider>
-        <md-list dense>
-          <md-list-item *ngFor="let user of users">
-            <h3 md-line>{{user.username}}</h3>
-            <p md-line class="demo-secondary-text">{{user.name}}</p>
-          </md-list-item>
-        </md-list>
-      </md-card-content>
-      <md-card-content>
-        <p>The zip operator will subscribe to all inner observables, waiting for each to emit a value. Once this occurs, all
-          values with the corresponding index will be emitted. This will continue until at least one inner observable completes.</p>
-        <md-card-actions>
-          <button md-raised-button [color]="'primary'" (click)="startZipping(10)">Set interval 10</button>
-          <button md-raised-button [color]="'warn'" (click)="startZipping(5)">Set interval 5</button>
-        </md-card-actions>
-      </md-card-content>
-      <md-card-footer>
-        <md-progress-bar mode="determinate"></md-progress-bar>
-      </md-card-footer>
-    </md-card>
-    <md-card>
-      <md-card-subtitle>
-        <span>Observable.withLatestFrom</span>
-        <span style="float:right">
+  <md-card class="no-padding">
+    <md-toolbar color="primary">Zip operator demo</md-toolbar>
+
+    <md-tab-group class="demo-tab-group" md-stretch-tabs>
+      <md-tab>
+        <ng-template md-tab-label>Example</ng-template>
+        <div class="tab-content">
+          <md-card-content class="padding-16">
+            <md-card-content>
+              <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0"
+                [max]="10" step="1" #slider1></md-slider>
+              <md-list dense>
+                <md-list-item *ngFor="let user of users">
+                  <h3 md-line>{{user.username}}</h3>
+                  <p md-line class="demo-secondary-text">{{user.name}}</p>
+                </md-list-item>
+              </md-list>
+            </md-card-content>
+            <md-card-content>
+              <p>The zip operator will subscribe to all inner observables, waiting for each to emit a value. Once this occurs,
+                all values with the corresponding index will be emitted. This will continue until at least one inner observable
+                completes.
+              </p>
+              <md-card-actions>
+                <button md-raised-button [color]="'primary'" (click)="startZipping(10)">Set interval 10</button>
+                <button md-raised-button [color]="'warn'" (click)="startZipping(5)">Set interval 5</button>
+              </md-card-actions>
+            </md-card-content>
+          </md-card-content>
+          <md-card-content>
+            <p>Find the lowest values among products</p>
+          </md-card-content>
+        </div>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>About</ng-template>
+        <div class="tab-content documentation">
+          <iframe src="http://reactivex.io/documentation/operators/zip.html" width="100%" height="350"></iframe>
+        </div>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>Sample Code</ng-template>
+        <div class="tab-content">
+          <section [innerHTML]="sampleCodeZip" highlight-js-content=".highlight"></section>
+        </div>
+      </md-tab>
+    </md-tab-group>
+    <md-card-footer>
+      <md-progress-bar mode="determinate"></md-progress-bar>
+    </md-card-footer>
+  </md-card>
+</div>
+
+<div class="card-container">
+  <md-card class="no-padding">
+    <md-toolbar color="primary">Observable.withLatestFrom & Observable.combineLatest operators demo</md-toolbar>
+
+    <md-tab-group class="demo-tab-group" md-stretch-tabs>
+      <md-tab>
+        <ng-template md-tab-label>Example</ng-template>
+        <div class="tab-content">
+          <md-card>
+            <md-card-subtitle>
+              <span style="float:right">
         <md-select [(ngModel)]="operator" class="md-select--150" (change)="switchOperator($event.value)">
           <md-option [value]="'withLatestFrom'">
             withLatestFrom
@@ -37,78 +72,92 @@
           </md-option>
         </md-select>
         </span>
-      </md-card-subtitle>
-      <md-card-title>On source emit..</md-card-title>
-      <md-card-content>
-        <md-select placeholder="Select user" class="md-select--150">
-          <md-option *ngFor="let user of ds.getUsersSync()" [value]="user.id" (click)="nextUser(user)">
-            {{user.name}}
-          </md-option>
-        </md-select>
-        <button md-icon-button [mdTooltip]="tooltip" [mdTooltipPosition]="'right'">
+            </md-card-subtitle>
+            <md-card-content>
+              <md-select placeholder="Select user" class="md-select--150">
+                <md-option *ngFor="let user of ds.getUsersSync()" [value]="user.id" (click)="nextUser(user)">
+                  {{user.name}}
+                </md-option>
+              </md-select>
+              <button md-icon-button [mdTooltip]="tooltip" [mdTooltipPosition]="'right'">
           <md-icon [color]="'primary'">info</md-icon>
         </button>
-        <br/>
-        <div>
-          <md-button-toggle-group #group="mdButtonToggleGroup">
-            <md-button-toggle value="company" (click)="nextOption('company')">
-              View Company
-              <md-icon [color]="'primary'">card_travel</md-icon>
-            </md-button-toggle>
-            <md-button-toggle value="address" (click)="nextOption('address')">
-              View Address
-              <md-icon [color]="'accent'">add_location</md-icon>
-            </md-button-toggle>
-            <md-button-toggle value="posts" (click)="nextOption('posts')">
-              View Posts
-              <md-icon [color]="'warn'">rss_feed</md-icon>
-            </md-button-toggle>
-          </md-button-toggle-group>
-          <button md-icon-button mdTooltip="the source observable" [mdTooltipPosition]="'right'">
+              <br/>
+              <div>
+                <md-button-toggle-group #group="mdButtonToggleGroup">
+                  <md-button-toggle value="company" (click)="nextOption('company')">
+                    View Company
+                    <md-icon [color]="'primary'">card_travel</md-icon>
+                  </md-button-toggle>
+                  <md-button-toggle value="address" (click)="nextOption('address')">
+                    View Address
+                    <md-icon [color]="'accent'">add_location</md-icon>
+                  </md-button-toggle>
+                  <md-button-toggle value="posts" (click)="nextOption('posts')">
+                    View Posts
+                    <md-icon [color]="'warn'">rss_feed</md-icon>
+                  </md-button-toggle>
+                </md-button-toggle-group>
+                <button md-icon-button mdTooltip="the source observable" [mdTooltipPosition]="'right'">
           <md-icon [color]="'primary'">info</md-icon>
         </button>
-        </div>
-      </md-card-content>
-      <md-card-content [ngSwitch]="selectedOption$ | async">
-        <div *ngSwitchCase="'company'">
-          <!--{{(selectedUser$ | async)?.company.name}}-->
-          <md-card *ngIf="selectedUser">
-            <md-card-title-group>
-              <md-card-title>{{selectedUser?.company.name}}</md-card-title>
-              <md-card-subtitle>{{selectedUser?.company.catchPhrase}}</md-card-subtitle>
-              <md-card-subtitle>{{selectedUser?.company.bs}}</md-card-subtitle>
-            </md-card-title-group>
-          </md-card>
+              </div>
+            </md-card-content>
+            <md-card-content [ngSwitch]="selectedOption$ | async">
+              <div *ngSwitchCase="'company'">
+                <!--{{(selectedUser$ | async)?.company.name}}-->
+                <md-card *ngIf="selectedUser">
+                  <md-card-title-group>
+                    <md-card-title>{{selectedUser?.company.name}}</md-card-title>
+                    <md-card-subtitle>{{selectedUser?.company.catchPhrase}}</md-card-subtitle>
+                    <md-card-subtitle>{{selectedUser?.company.bs}}</md-card-subtitle>
+                  </md-card-title-group>
+                </md-card>
 
-        </div>
-        <div *ngSwitchCase="'address'">
-          <md-card *ngIf="selectedUser">
-            <md-card-title-group>
-              <md-card-title>{{selectedUser?.address.street}}</md-card-title>
-              <md-card-subtitle>{{selectedUser?.address.suite}}</md-card-subtitle>
-              <md-card-subtitle>{{selectedUser?.address.city}}</md-card-subtitle>
-            </md-card-title-group>
-          </md-card>
+              </div>
+              <div *ngSwitchCase="'address'">
+                <md-card *ngIf="selectedUser">
+                  <md-card-title-group>
+                    <md-card-title>{{selectedUser?.address.street}}</md-card-title>
+                    <md-card-subtitle>{{selectedUser?.address.suite}}</md-card-subtitle>
+                    <md-card-subtitle>{{selectedUser?.address.city}}</md-card-subtitle>
+                  </md-card-title-group>
+                </md-card>
 
+              </div>
+              <div *ngSwitchCase="'posts'">
+                <div *ngFor="let post of selectedUserPosts" class="card-post-item">
+                  <md-card>
+                    <md-card-title-group>
+                      <md-card-title>{{post.title}}</md-card-title>
+                      <md-card-subtitle>{{post.body}}</md-card-subtitle>
+                    </md-card-title-group>
+                  </md-card>
+                </div>
+              </div>
+            </md-card-content>
+            <md-card-content>
+              <p>Combines the source Observable with other Observables to create an Observable whose values are calculated from
+                the latest values of each, only when the source emits..</p>
+            </md-card-content>
+          </md-card>
         </div>
-        <div *ngSwitchCase="'posts'">
-          <div *ngFor="let post of selectedUserPosts" class="card-post-item">
-            <md-card>
-              <md-card-title-group>
-                <md-card-title>{{post.title}}</md-card-title>
-                <md-card-subtitle>{{post.body}}</md-card-subtitle>
-              </md-card-title-group>
-            </md-card>
-          </div>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>About</ng-template>
+        <div class="tab-content documentation">
+          <iframe src="http://reactivex.io/documentation/operators/combinelatest.html" width="100%" height="350"></iframe>
         </div>
-      </md-card-content>
-      <md-card-content>
-        <p>Combines the source Observable with other Observables to create an Observable whose values are calculated from the
-          latest values of each, only when the source emits..</p>
-      </md-card-content>
-      <md-card-footer>
-        <md-progress-bar mode="determinate"></md-progress-bar>
-      </md-card-footer>
-    </md-card>
-  </div>
+      </md-tab>
+      <md-tab>
+        <ng-template md-tab-label>Sample Code</ng-template>
+        <div class="tab-content">
+          <section [innerHTML]="sampleCodeCombine" highlight-js-content=".highlight"></section>
+        </div>
+      </md-tab>
+    </md-tab-group>
+    <md-card-footer>
+      <md-progress-bar mode="determinate"></md-progress-bar>
+    </md-card-footer>
+  </md-card>
 </div>

@@ -1,8 +1,7 @@
+import { sampleCode } from './../create-observables/sample-code';
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } from 'rxjs';
-
-import { HighlightJsService } from 'angular2-highlight-js';
 
 @Component({
   selector: 'app-subjects',
@@ -14,28 +13,9 @@ export class SubjectsComponent implements OnInit {
   userStatus$ = new BehaviorSubject({ user: { isLoggedIn: false, name: '' } });
   isLoggedIn$ = this.userStatus$.map((u: any) => u.user);
 
-  sampleCode = `
-  <pre>
-    <code class="typescript highlight">
-        userStatus$ = new BehaviorSubject({ user: { isLoggedIn: false, name: '' } });
-        isLoggedIn$ = this.userStatus$.map((u: any) => u.user);
+  sampleCode = sampleCode;
 
-        trackUser() {
-          this.isLoggedIn$.subscribe(status => console.log(status));
-        }
-
-        signin(username, password) {
-          this.userStatus$.next({ user: { isLoggedIn: true, name: username } });
-        }
-
-        signout() {
-          this.userStatus$.next({ user: { isLoggedIn: false, name: '' } });
-        }
-    </code>
-</pre>
-        `;
-
-  constructor(private el: ElementRef, private service: HighlightJsService) { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
     this.trackUser();
