@@ -3,10 +3,25 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import './app/theme.css';
-
 .home-image {
-    height: 80vh;
-    background-size: cover;
+  height: 80vh;
+  background-size: cover;
+}
+
+.home-phrase.mat-grid-tile {
+  text-align: center !important;
+  background: #3f51b5 !important;
+  color: #3f51b5;
+  font-style: italic;
+  font-size: xx-large;
+}
+
+.home-phrase.mat-grid-tile.phrase-highlight {
+  text-align: center !important;
+  background: #3f51b5 !important;
+  color: whitesmoke;
+  font-style: italic;
+  font-size: xx-large;
 }
 
 .card-container {
@@ -68,6 +83,10 @@
 
 .margin-4 {
   margin: 4px !important;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 4px !important;
 }
 
 .margin-right-8 {

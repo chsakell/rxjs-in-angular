@@ -1,1 +1,9 @@
-<div class="home-image" style="background-image: url(../../assets/images/reactiveX.png)"></div>
+<!--<div class="home-image" style="background-image: url(../../assets/images/reactiveX.png)"></div>-->
+<md-grid-list cols="13" rowHeight="1:1" *ngFor="let phrase of phrases" gutterSize="4" class="margin-bottom-4">
+  <md-grid-tile *ngFor="let word of phrase" class="home-phrase" [ngClass]="{'phrase-highlight': word.highlighted === true}">
+    <div [ngClass]="">
+      {{word.letter}}
+    </div>
+  </md-grid-tile>
+
+</md-grid-list>
