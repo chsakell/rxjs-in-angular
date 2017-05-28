@@ -1,1 +1,2 @@
-[config] command = deploy.cmd
+[config] 
+command = deploy.cmd
