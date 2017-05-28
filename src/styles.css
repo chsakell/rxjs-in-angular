@@ -29,6 +29,13 @@
   transform: rotateY(180deg);
 }
 
+.home-link {
+  margin: auto auto;
+  color: #e6e8f6;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 .card-container {
   display: flex;
   flex-flow: column nowrap;
@@ -199,7 +206,6 @@
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative;
-
   height: 100%;
   width: 100%;
   background: #303030;

@@ -1,4 +1,4 @@
-# ReactiveX Operators in Angular
+# ReactiveX Operators in Angular - Playground
 
 ## About
 
