@@ -4,7 +4,7 @@
     <md-grid-tile *ngFor="let word of phrase" class="home-phrase flip-container" [ngClass]="{'phrase-highlight': word.highlighted === true}">
       <div class="flipper">
         <div class="front mat-grid-tile mat-figure">
-            <img [src]="'assets/images/' + word.image" *ngIf="word.image"/>
+            <!--<img [src]="'assets/images/' + word.image" *ngIf="word.image"/> -->
         </div>
         <div class="back mat-grid-tile mat-figure">
           {{word.letter}}
