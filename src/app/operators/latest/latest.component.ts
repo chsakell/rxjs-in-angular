@@ -28,7 +28,7 @@ export class LatestComponent implements OnInit {
 
   sampleCodeCombine = sampleCodeCombine;
 
-  constructor(private ds: DataService) { }
+  constructor(public ds: DataService) { }
 
   ngOnInit() {
     this.startWithLatestFrom();

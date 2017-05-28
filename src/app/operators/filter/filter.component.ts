@@ -18,7 +18,7 @@ export class FilterComponent implements OnInit {
 
   sampleCode = sampleCode;
 
-  constructor(private ds: DataService) { }
+  constructor(public ds: DataService) { }
 
   ngOnInit() {
     this.selectedUser$

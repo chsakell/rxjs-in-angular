@@ -13,6 +13,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
 
+  dark = false;
+
   navItems = [
     { name: 'Create Observables', route: 'create-observables' },
     { name: 'Hot & Cold Observables', route: 'hot-and-cold-observables' },
