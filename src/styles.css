@@ -24,6 +24,11 @@
   font-size: xx-large;
 }
 
+.home-phrase.mat-grid-tile.phrase-highlight .flipper,
+.home-phrase.mat-grid-tile.phrase-highlight .flipper {
+  transform: rotateY(180deg);
+}
+
 .card-container {
   display: flex;
   flex-flow: column nowrap;
@@ -175,4 +180,54 @@
 
 .toolbar-link:hover {
   color: #ff5722;
+}
+
+
+/* Flip */
+
+
+/* entire container, keeps perspective */
+
+.flip-container {
+  perspective: 1000px;
+}
+
+
+/* flip speed goes here */
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+
+  height: 100%;
+  width: 100%;
+  background: #303030;
+}
+
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+/* front pane, placed above back */
+
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+
+/* back, initially hidden pane */
+
+.back {
+  transform: rotateY(180deg);
 }

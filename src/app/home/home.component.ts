@@ -11,6 +11,10 @@ export class HomeComponent implements OnInit {
   phrases: any[] = [
     [
       // tslint:disable-next-line:max-line-length
+      { id: 0, letter: '' }, { id: 1, letter: '' }, { id: 2, letter: '' }, { id: 3, letter: '' }, { id: 4, letter: '' }, { id: 5, letter: '' }, { id: 6, letter: '' }, { id: 7, letter: '' }, { id: 8, letter: '' }, { id: 9, letter: '' }, { id: 10, letter: '' }, { id: 11, letter: '' }, { id: 12, letter: '' }
+    ],
+    [
+      // tslint:disable-next-line:max-line-length
       { id: 0, letter: '' }, { id: 1, letter: '' }, { id: 2, letter: 'R' }, { id: 3, letter: 'e' }, { id: 4, letter: 'a' }, { id: 5, letter: 'c' }, { id: 6, letter: 't' }, { id: 7, letter: 'i' }, { id: 8, letter: 'v' }, { id: 9, letter: 'e' }, { id: 10, letter: 'X' }, { id: 11, letter: '' }, { id: 12, letter: '' }
     ],
     [
@@ -19,7 +23,7 @@ export class HomeComponent implements OnInit {
     ],
     [
       // tslint:disable-next-line:max-line-length
-      { id: 0, letter: '' }, { id: 1, letter: '' }, { id: 2, letter: '' }, { id: 3, letter: '' }, { id: 4, letter: '' }, { id: 5, letter: '' }, { id: 6, letter: 'i' }, { id: 7, letter: 'n' }, { id: 8, letter: '' }, { id: 9, letter: '' }, { id: 10, letter: '' }, { id: 11, letter: '' }, { id: 12, letter: '' }
+      { id: 0, letter: '' }, { id: 1, letter: '' }, { id: 2, letter: '' }, { id: 3, letter: '' }, { id: 4, letter: '' }, { id: 5, letter: '', image: 'reactive.jpg' }, { id: 6, letter: '' }, { id: 7, letter: '', image: 'angular-2.jpg' }, { id: 8, letter: '' }, { id: 9, letter: '' }, { id: 10, letter: '' }, { id: 11, letter: '' }, { id: 12, letter: '' }
     ],
     [
       // tslint:disable-next-line:max-line-length
@@ -35,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   start() {
     let counter = 0;
-    const interval$ = Observable.interval(100).take(13 * 4);
+    const interval$ = Observable.interval(100).take(13 * 5);
     const indexSubject: Subject<number> = new BehaviorSubject(counter);
 
     // Observable.range(0, 4).subscribe(index => console.log(this.phrases[index]));

@@ -1,9 +1,15 @@
 <!--<div class="home-image" style="background-image: url(../../assets/images/reactiveX.png)"></div>-->
-<md-grid-list cols="13" rowHeight="1:1" *ngFor="let phrase of phrases" gutterSize="4" class="margin-bottom-4">
-  <md-grid-tile *ngFor="let word of phrase" class="home-phrase" [ngClass]="{'phrase-highlight': word.highlighted === true}">
-    <div [ngClass]="">
-      {{word.letter}}
-    </div>
-  </md-grid-tile>
-
-</md-grid-list>
+<div style="background:#303030">
+  <md-grid-list cols="13" rowHeight="1:1" *ngFor="let phrase of phrases" gutterSize="4" class="margin-bottom-4">
+    <md-grid-tile *ngFor="let word of phrase" class="home-phrase flip-container" [ngClass]="{'phrase-highlight': word.highlighted === true}">
+      <div class="flipper">
+        <div class="front mat-grid-tile mat-figure">
+            <img [src]="'assets/images/' + word.image" *ngIf="word.image"/>
+        </div>
+        <div class="back mat-grid-tile mat-figure">
+          {{word.letter}}
+        </div>
+      </div>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
