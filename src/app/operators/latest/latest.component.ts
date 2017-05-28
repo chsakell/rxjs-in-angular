@@ -1,5 +1,4 @@
 import { DataService } from './../../shared/data.service';
-import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import * as _ from 'lodash';
@@ -34,25 +33,6 @@ export class LatestComponent implements OnInit {
   ngOnInit() {
     this.startWithLatestFrom();
     this.startCombineLatest();
-  }
-
-  arrayZip(array1, array2, selector) {
-    const count = Math.min(array1.length, array2.length);
-    const results = [];
-    for (let i = 0; i < count; i++) {
-      const combined = selector(array1[i], array2[i]);
-      results.push(combined);
-    }
-
-    return results;
-  }
-
-  arrayZipTest() {
-    const array1 = [32, 2, 52, 44, 54];
-    const array2 = [1, 0, 10, 4, 1, 1, 6, 2, 4];
-    const results = this.arrayZip(array1, array2, (left, right) => left * right);
-
-    console.log(results);
   }
 
   startZipping(seconds) {
@@ -108,48 +88,8 @@ export class LatestComponent implements OnInit {
     this.selectedUser$.next(user);
   }
 
-  zip() {
-    Observable.range(1, 10) // source
-      .zip(Observable.interval(3000), (left, right) =>
-        `item ${left}, at ${right * 3000}`
-      )
-      .subscribe(createSubscriber('zip'));
-  }
-
-  withLatestFrom() {
-    Observable.interval(1000) // emits only on source emit
-      .withLatestFrom(Observable.interval(500))
-      .subscribe(createSubscriber('with-latest-from'));
-  }
-
-  withLatestFromExample() {
-    const currentUser$ = new BehaviorSubject({ isLoggedIn: false });
-
-    Observable.interval(1000)
-      .withLatestFrom(currentUser$)
-      .filter(([i, user]) => user.isLoggedIn)
-      .subscribe(createSubscriber('with-latest-from-example'));
-
-    setTimeout(function () {
-      currentUser$.next({ isLoggedIn: true });
-    }, 4000);
-  }
-
   switchOperator(operator) {
     this.tooltip = this.operator + ' observable';
-  }
-
-  combineLatest() {
-    Observable.interval(1000) // emits on both sources
-      .withLatestFrom(Observable.interval(500))
-      .subscribe(createSubscriber('combine-latest'));
-  }
-
-  combineLatestSelect() {
-    Observable.interval(1000)
-      .withLatestFrom(Observable.interval(500),
-      (left, right) => left * right)
-      .subscribe(createSubscriber('combine-latest-select'));
   }
 
 }

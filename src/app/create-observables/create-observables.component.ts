@@ -2,7 +2,6 @@ import { MdDialogConfig, MdDialog } from '@angular/material';
 import { DataService } from './../shared/data.service';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { createInterval$, createSubscriber, take$ } from 'app/shared/utils';
 import { sampleCode } from './sample-code';
 import * as _ from 'lodash';
 
@@ -30,8 +29,6 @@ export class CreateObservablesComponent implements OnInit {
   error$ = new Observable(observer => {
     observer.error(new Error('WHOA!'));
   });
-
-  everySecond$ = createInterval$(1000);
 
   sideEffet$ = 0;
 

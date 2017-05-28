@@ -1,4 +1,3 @@
-import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import * as _ from 'lodash';
@@ -64,7 +63,6 @@ export class HotAndColdComponent implements OnInit {
     });
   }
 
-
   getMousePos(canvas, evt) {
     const rect = canvas.getBoundingClientRect(), // abs. size of element
       scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for X
@@ -119,48 +117,6 @@ export class HotAndColdComponent implements OnInit {
       () => {
         subscriber.sliderDisabled = true;
       });
-  }
-
-  test_04() {
-    const simple$ = new Observable(observer => {
-      observer.next('one');
-      observer.next('two');
-      observer.next('three');
-
-      return () => console.log('Disposed');
-    });
-
-    const published$ = simple$.publishReplay(2);
-
-    const sub1 = published$.subscribe(createSubscriber('one'));
-    const connection = published$.connect();
-    const sub2 = published$.subscribe(createSubscriber('two'));
-
-    sub1.unsubscribe();
-    sub2.unsubscribe();
-    connection.unsubscribe();
-  }
-
-  test_05() {
-    const simple$ = new Observable(observer => {
-      observer.next('one');
-      observer.next('two');
-      observer.next('three');
-
-      return () => console.log('Disposed');
-    });
-
-    // connect on the first subscribe
-    // disconnect on the last unsubscribe
-    const published$ = simple$.publishReplay(2).refCount();
-
-    const sub1 = published$.subscribe(createSubscriber('one'));
-
-    const sub2 = published$.subscribe(createSubscriber('two'));
-
-    sub1.unsubscribe();
-    sub2.unsubscribe();
-
   }
 
 }

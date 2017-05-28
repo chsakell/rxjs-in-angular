@@ -39,16 +39,13 @@ export class HomeComponent implements OnInit {
 
   start() {
     let counter = 0;
-    const interval$ = Observable.interval(100).take(13 * 5);
+    const interval$ = Observable.interval(100).take(13 * 5).map(i => i % 13);
     const indexSubject: Subject<number> = new BehaviorSubject(counter);
-
-    // Observable.range(0, 4).subscribe(index => console.log(this.phrases[index]));
 
     interval$.withLatestFrom(indexSubject)
       .subscribe(([i, j]) => {
-        console.log('i: ' + i % 13 + ', j: ' + j);
-        this.phrases[j][i % 13].highlighted = true;
-        if (i % 13 === 12) {
+        this.phrases[j][i].highlighted = true;
+        if (i === 12) {
           counter++;
           indexSubject.next(counter);
         }
