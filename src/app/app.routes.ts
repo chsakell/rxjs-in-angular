@@ -9,6 +9,7 @@ import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
 import { CreateObservablesComponent } from './create-observables/create-observables.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { BufferComponent } from 'app/operators/buffer/buffer.component';
 
 
 export const APP_ROUTES: Routes = [
@@ -21,5 +22,6 @@ export const APP_ROUTES: Routes = [
     { path: 'merge', component: MergeComponent },
     { path: 'filter', component: FilterComponent },
     { path: 'scan', component: ScanComponent },
-    { path: 'reduce', component: ReduceComponent }
+    { path: 'reduce', component: ReduceComponent },
+    { path: 'buffer', component: BufferComponent }
 ];

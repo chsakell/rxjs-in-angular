@@ -1,0 +1,41 @@
+<md-card class="no-padding">
+  <md-toolbar color="primary">Subjects demo</md-toolbar>
+
+  <md-tab-group class="demo-tab-group" md-stretch-tabs>
+    <md-tab>
+      <ng-template md-tab-label>Example</ng-template>
+      <div class="tab-content">
+        <md-card-content>
+          <md-slider class="app-slider" [color]="'warn'" [value]="sliderValue" thumbLabel [min]="0" [max]="5"
+            step="1" #slider1></md-slider>
+            <h3>Select 5 number to add</h3>
+        </md-card-content>
+        <md-card-content>
+          <md-grid-list cols="5" rowHeight="2:1">
+            <md-grid-tile *ngFor="let button of buttons" (click)="addNumber(button)" class="button-buffer">{{button}}</md-grid-tile>
+          </md-grid-list>
+        </md-card-content>
+        <md-card-content>
+          <strong>You have selected:</strong> 
+          <button md-raised-button *ngFor="let number of latestNumbers">{{number}}</button>
+          <strong>Total:</strong> {{total}}
+        </md-card-content>
+      </div>
+    </md-tab>
+    <md-tab>
+      <ng-template md-tab-label>About</ng-template>
+      <div class="tab-content documentation">
+        <iframe src="http://reactivex.io/documentation/operators/buffer.html" width="100%" height="350"></iframe>
+      </div>
+    </md-tab>
+    <md-tab>
+      <ng-template md-tab-label>Sample Code</ng-template>
+      <div class="tab-content">
+        <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
+      </div>
+    </md-tab>
+  </md-tab-group>
+  <md-card-footer>
+    <md-progress-bar mode="determinate"></md-progress-bar>
+  </md-card-footer>
+</md-card>

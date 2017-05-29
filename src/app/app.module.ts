@@ -29,6 +29,7 @@ import { MergeComponent } from './operators/merge/merge.component';
 import { FilterComponent } from './operators/filter/filter.component';
 import { ScanComponent } from './operators/scan/scan.component';
 import { ReduceComponent } from './operators/reduce/reduce.component';
+import { BufferComponent } from './operators/buffer/buffer.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ReduceComponent } from './operators/reduce/reduce.component';
     MergeComponent,
     FilterComponent,
     ScanComponent,
-    ReduceComponent
+    ReduceComponent,
+    BufferComponent
   ],
   imports: [
     BrowserModule,

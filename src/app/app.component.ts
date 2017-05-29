@@ -23,11 +23,11 @@ export class AppComponent {
     { name: 'Merge', route: 'merge' },
     { name: 'Filter', route: 'filter' },
     { name: 'Scan', route: 'scan' },
-    { name: 'Reduce', route: 'reduce' }
+    { name: 'Reduce', route: 'reduce' },
+    { name: 'Buffer', route: 'buffer' }
     /*
      TODO..
     { name: 'Concat', route: 'concat' }
-    { name: 'Buffer', route: 'buffer' },
     ,
     */
   ];

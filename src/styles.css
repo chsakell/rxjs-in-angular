@@ -189,6 +189,15 @@
   color: #ff5722;
 }
 
+.button-buffer {
+  background: #3f51b5;
+}
+
+.button-buffer:hover {
+  background: #ff5722;
+  cursor: pointer;
+}
+
 
 /* Flip */
 

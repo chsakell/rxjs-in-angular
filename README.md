@@ -12,6 +12,10 @@ Multiple examples using the most used `RxJS operators` with Angular.
 1. npm start
 1. navigate to `http://localhost:4200/`
 
+## Demo
+
+[RxJS Angular Playground](http://rxjs-angular-playground.azurewebsites.net)
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
