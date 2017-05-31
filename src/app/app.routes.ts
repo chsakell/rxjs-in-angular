@@ -10,7 +10,8 @@ import { CreateObservablesComponent } from './create-observables/create-observab
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BufferComponent } from 'app/operators/buffer/buffer.component';
-
+import { MergeMapComponent } from 'app/operators/merge-map/merge-map.component';
+import { SwitchMapComponent } from 'app/operators/switch-map/switch-map.component';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -20,6 +21,8 @@ export const APP_ROUTES: Routes = [
     { path: 'operators', component: OperatorsComponent },
     { path: 'latest', component: LatestComponent },
     { path: 'merge', component: MergeComponent },
+    { path: 'merge-map', component: MergeMapComponent },
+    { path: 'switch-map', component: SwitchMapComponent },
     { path: 'filter', component: FilterComponent },
     { path: 'scan', component: ScanComponent },
     { path: 'reduce', component: ReduceComponent },

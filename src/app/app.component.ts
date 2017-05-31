@@ -21,14 +21,12 @@ export class AppComponent {
     { name: 'Subjects', route: 'subjects' },
     { name: 'Latest', route: 'latest' },
     { name: 'Merge', route: 'merge' },
+    { name: 'MergeMap', route: 'merge-map' },
+    { name: 'SwitchMap', route: 'switch-map' },
     { name: 'Filter', route: 'filter' },
     { name: 'Scan', route: 'scan' },
     { name: 'Reduce', route: 'reduce' },
-    { name: 'Buffer', route: 'buffer' }
-    /*
-     TODO..
-    { name: 'Concat', route: 'concat' }
-    ,
-    */
+    { name: 'Buffer', route: 'buffer' },
+
   ];
 }

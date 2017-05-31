@@ -30,6 +30,8 @@ import { FilterComponent } from './operators/filter/filter.component';
 import { ScanComponent } from './operators/scan/scan.component';
 import { ReduceComponent } from './operators/reduce/reduce.component';
 import { BufferComponent } from './operators/buffer/buffer.component';
+import { MergeMapComponent } from './operators/merge-map/merge-map.component';
+import { SwitchMapComponent } from './operators/switch-map/switch-map.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { BufferComponent } from './operators/buffer/buffer.component';
     FilterComponent,
     ScanComponent,
     ReduceComponent,
-    BufferComponent
+    BufferComponent,
+    MergeMapComponent,
+    SwitchMapComponent
   ],
   imports: [
     BrowserModule,
