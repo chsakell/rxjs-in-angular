@@ -1,4 +1,7 @@
+import { Observable } from 'rxjs';
+import { DataService } from './../../shared/data.service';
 import { Component, OnInit } from '@angular/core';
+import { sampleCode } from './sample-code';
 
 @Component({
   selector: 'app-merge-map',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MergeMapComponent implements OnInit {
 
-  constructor() { }
+  companies: any[] = [];
+  sampleCode = sampleCode;
+
+  constructor(public ds: DataService) { }
 
   ngOnInit() {
+    this.ds.getUsers()
+      .mergeMap(user => Observable.of(user.company))
+      .subscribe(company => this.companies.push(company));
   }
 
 }

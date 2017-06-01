@@ -198,6 +198,11 @@
   cursor: pointer;
 }
 
+.company {
+  background: #f44336;
+  font-weight: 700;
+}
+
 
 /* Flip */
 

@@ -887,3 +887,33 @@ export const MOCK_PRODUCTS = [
         price: 188.90
     }
 ];
+
+export const MOCK_ALBUMS = [
+    {
+        id: 1, title: 'Away from the Sun', dateReleased: 'November 12, 2002', artist: '3 Doors Down',
+        tracks: [
+            { title: 'When I\'m Gone', duration: '4:21' },
+            { title: 'Away from the Sun', duration: '3:53' },
+            { title: 'The Road I\'m On', duration: '3:59' },
+            { title: 'Ticket to Heaven', duration: '3:27' },
+            { title: 'Running Out of Days', duration: '3:31' },
+            { title: 'Here Without You', duration: '3:58' },
+            { title: 'Dangerous Game', duration: '3:36' },
+            { title: 'Changes', duration: '3:56' },
+        ]
+    },
+    {
+        id: 2, title: 'Seventeen Days', dateReleased: 'February 8, 2005', artist: '3 Doors Down',
+        tracks: [
+            { title: 'Right Where I Belong', duration: '2:32' },
+            { title: 'It\'s Not Me', duration: '3:14' },
+            { title: 'Let Me Go', duration: '3:52' },
+            { title: 'Be Somebody', duration: '3:15' },
+            { title: 'Landing in London', duration: '4:31' },
+            { title: 'The Real Life', duration: '3:52' },
+            { title: 'Never Will I Break', duration: '3:50' },
+            { title: 'Father\'s Son', duration: '4:12' },
+        ]
+    }
+];
+
