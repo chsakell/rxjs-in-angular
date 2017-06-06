@@ -1,3 +1,49 @@
-<p>
-  switch-map works!
-</p>
+<md-card>
+  <md-toolbar color="primary">Switch Map operator demo</md-toolbar>
+
+  <md-tab-group class="demo-tab-group" md-stretch-tabs>
+    <md-tab>
+      <ng-template md-tab-label>Example</ng-template>
+      <div class="tab-content">
+        <md-card-content class="align-right">
+          <md-slider class="app-slider" [color]="'warn'" [value]="sliderValue" thumbLabel [min]="0" [max]="10" step="1"></md-slider>
+        </md-card-content>
+        <md-card-content>
+          <md-select #selectedUser id="selectedUser" (change)="selectedUser$.next($event.value)" placeholder="Select user" class="md-select--150">
+            <md-option *ngFor="let user of ds.getUsersSync()" [value]="user">
+              {{user.name}}
+            </md-option>
+          </md-select>
+          <md-progress-bar mode="indeterminate" class="margin-4" *ngIf="loading"></md-progress-bar>
+          <div class="posts-container">
+            <md-card *ngFor="let post of loadedPosts">
+              {{post.title}}
+            </md-card>
+          </div>
+        </md-card-content>
+        <md-card-content>
+          <p *ngIf="sliderValue > 0">{{10 - sliderValue}} seconds before REST API response..</p>
+          <p>If you change selected user before the API returns, switchMap will cancel the in-flight network request </p>
+        </md-card-content>
+      </div>
+    </md-tab>
+    <md-tab>
+      <ng-template md-tab-label>About</ng-template>
+      <div class="tab-content documentation">
+        <iframe src="https://www.learnrxjs.io/operators/transformation/switchmap.html" width="100%" height="350"></iframe>
+      </div>
+    </md-tab>
+    <md-tab>
+      <ng-template md-tab-label>Sample Code</ng-template>
+      <div class="tab-content">
+        <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
+      </div>
+    </md-tab>
+  </md-tab-group>
+
+
+
+  <md-card-footer>
+    <md-progress-bar mode="determinate"></md-progress-bar>
+  </md-card-footer>
+</md-card>

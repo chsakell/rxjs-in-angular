@@ -31,7 +31,7 @@ export class FilterComponent implements OnInit {
       .subscribe((userId) => {
         this.loading = true;
         this.loadedPosts = [];
-        this.ds.getUserPosts(userId).subscribe((records) => {
+        this.ds.getUserPosts(userId, 2000).subscribe((records) => {
           this.loading = false;
           this.userPosts[userId] = records;
           this.loadedPosts = [...records];
