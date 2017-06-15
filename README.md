@@ -12,7 +12,7 @@ Multiple examples using the most used `RxJS operators` with Angular.
 1. npm start
 1. navigate to `http://localhost:4200/`
 
-## Demo
+## Live Demo
 
 [RxJS Angular Playground](http://rxjs-angular-playground.azurewebsites.net)
 
