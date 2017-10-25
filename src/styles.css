@@ -89,7 +89,7 @@
   width: 50%;
 }
 
-.md-select--150 {
+.mat-select--150 {
   width: 150px;
 }
 
@@ -117,7 +117,7 @@
   text-align: left;
 }
 
-.posts-container md-card {
+.posts-container mat-card {
   display: inline-block !important;
   margin: 4px;
   background: #3f51b5;

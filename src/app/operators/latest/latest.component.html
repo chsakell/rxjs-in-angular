@@ -1,163 +1,163 @@
 <div class="card-container">
-  <md-card class="no-padding">
-    <md-toolbar color="primary">Zip operator demo</md-toolbar>
+  <mat-card class="no-padding">
+    <mat-toolbar color="primary">Zip operator demo</mat-toolbar>
 
-    <md-tab-group class="demo-tab-group" md-stretch-tabs>
-      <md-tab>
-        <ng-template md-tab-label>Example</ng-template>
+    <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+      <mat-tab>
+        <ng-template mat-tab-label>Example</ng-template>
         <div class="tab-content">
-          <md-card-content class="padding-16">
-            <md-card-content>
-              <md-slider class="app-slider" [color]="'primary'" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0"
-                [max]="10" step="1" #slider1></md-slider>
-              <md-list dense>
-                <md-list-item *ngFor="let user of users">
-                  <h3 md-line>{{user.username}}</h3>
-                  <p md-line class="demo-secondary-text">{{user.name}}</p>
-                </md-list-item>
-              </md-list>
-            </md-card-content>
-            <md-card-content>
+          <mat-card-content class="padding-16">
+            <mat-card-content>
+              <mat-slider class="app-slider" color="primary" [value]="sliderValue" [disabled]="sliderDisabled" thumbLabel [min]="0" max="10"
+                step="1" #slider1></mat-slider>
+              <mat-list dense>
+                <mat-list-item *ngFor="let user of users">
+                  <h3 mat-line>{{user.username}}</h3>
+                  <p mat-line class="demo-secondary-text">{{user.name}}</p>
+                </mat-list-item>
+              </mat-list>
+            </mat-card-content>
+            <mat-card-content>
               <p>The zip operator will subscribe to all inner observables, waiting for each to emit a value. Once this occurs,
                 all values with the corresponding index will be emitted. This will continue until at least one inner observable
                 completes.
               </p>
-              <md-card-actions>
-                <button md-raised-button [color]="'primary'" (click)="startZipping(10)">Set interval 10</button>
-                <button md-raised-button [color]="'warn'" (click)="startZipping(5)">Set interval 5</button>
-              </md-card-actions>
-            </md-card-content>
-          </md-card-content>
-          <md-card-content>
+              <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="startZipping(10)">Set interval 10</button>
+                <button mat-raised-button color="warn" (click)="startZipping(5)">Set interval 5</button>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card-content>
+          <mat-card-content>
             <p>Find the lowest values among products</p>
-          </md-card-content>
+          </mat-card-content>
         </div>
-      </md-tab>
-      <md-tab>
-        <ng-template md-tab-label>About</ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>About</ng-template>
         <div class="tab-content documentation">
           <iframe src="http://reactivex.io/documentation/operators/zip.html" width="100%" height="350"></iframe>
         </div>
-      </md-tab>
-      <md-tab>
-        <ng-template md-tab-label>Sample Code</ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>Sample Code</ng-template>
         <div class="tab-content">
           <section [innerHTML]="sampleCodeZip" highlight-js-content=".highlight"></section>
         </div>
-      </md-tab>
-    </md-tab-group>
-    <md-card-footer>
-      <md-progress-bar mode="determinate"></md-progress-bar>
-    </md-card-footer>
-  </md-card>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
 </div>
 
 <div class="card-container">
-  <md-card class="no-padding">
-    <md-toolbar color="primary">Observable.withLatestFrom & Observable.combineLatest operators demo</md-toolbar>
+  <mat-card class="no-padding">
+    <mat-toolbar color="primary">Observable.withLatestFrom & Observable.combineLatest operators demo</mat-toolbar>
 
-    <md-tab-group class="demo-tab-group" md-stretch-tabs>
-      <md-tab>
-        <ng-template md-tab-label>Example</ng-template>
+    <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+      <mat-tab>
+        <ng-template mat-tab-label>Example</ng-template>
         <div class="tab-content">
-          <md-card>
-            <md-card-subtitle>
+          <mat-card>
+            <mat-card-subtitle>
               <span style="float:right">
-        <md-select [(ngModel)]="operator" class="md-select--150" (change)="switchOperator($event.value)">
-          <md-option [value]="'withLatestFrom'">
+        <mat-select [(ngModel)]="operator" class="mat-select--150" (change)="switchOperator($event.value)">
+          <mat-option [value]="'withLatestFrom'">
             withLatestFrom
-          </md-option>
-          <md-option [value]="'combineLatest'">
+          </mat-option>
+          <mat-option [value]="'combineLatest'">
             combineLatest
-          </md-option>
-        </md-select>
+          </mat-option>
+        </mat-select>
         </span>
-            </md-card-subtitle>
-            <md-card-content>
-              <md-select placeholder="Select user" class="md-select--150">
-                <md-option *ngFor="let user of ds.getUsersSync()" [value]="user.id" (click)="nextUser(user)">
+            </mat-card-subtitle>
+            <mat-card-content>
+              <mat-select placeholder="Select user" class="mat-select--150">
+                <mat-option *ngFor="let user of ds.getUsersSync()" [value]="user.id" (click)="nextUser(user)">
                   {{user.name}}
-                </md-option>
-              </md-select>
-              <button md-icon-button [mdTooltip]="tooltip" [mdTooltipPosition]="'right'">
-          <md-icon [color]="'primary'">info</md-icon>
+                </mat-option>
+              </mat-select>
+              <button mat-icon-button matTooltip="tooltip" matTooltipPosition="'right'">
+          <mat-icon class="material-icons" color="primary">info</mat-icon>
         </button>
               <br/>
               <div>
-                <md-button-toggle-group #group="mdButtonToggleGroup">
-                  <md-button-toggle value="company" (click)="nextOption('company')">
+                <mat-button-toggle-group>
+                  <mat-button-toggle value="company" (click)="nextOption('company')">
                     View Company
-                    <md-icon [color]="'primary'">card_travel</md-icon>
-                  </md-button-toggle>
-                  <md-button-toggle value="address" (click)="nextOption('address')">
+                    <mat-icon class="material-icons" color="primary">card_travel</mat-icon>
+                  </mat-button-toggle>
+                  <mat-button-toggle value="address" (click)="nextOption('address')">
                     View Address
-                    <md-icon [color]="'accent'">add_location</md-icon>
-                  </md-button-toggle>
-                  <md-button-toggle value="posts" (click)="nextOption('posts')">
+                    <mat-icon class="material-icons" color="accent">add_location</mat-icon>
+                  </mat-button-toggle>
+                  <mat-button-toggle value="posts" (click)="nextOption('posts')">
                     View Posts
-                    <md-icon [color]="'warn'">rss_feed</md-icon>
-                  </md-button-toggle>
-                </md-button-toggle-group>
-                <button md-icon-button mdTooltip="the source observable" [mdTooltipPosition]="'right'">
-          <md-icon [color]="'primary'">info</md-icon>
+                    <mat-icon class="material-icons" color="warn">rss_feed</mat-icon>
+                  </mat-button-toggle>
+                </mat-button-toggle-group>
+                <button mat-icon-button matTooltip="the source observable" matTooltipPosition="'right'">
+          <mat-icon class="material-icons" color="primary">info</mat-icon>
         </button>
               </div>
-            </md-card-content>
-            <md-card-content [ngSwitch]="selectedOption$ | async">
+            </mat-card-content>
+            <mat-card-content [ngSwitch]="selectedOption$ | async">
               <div *ngSwitchCase="'company'">
                 <!--{{(selectedUser$ | async)?.company.name}}-->
-                <md-card *ngIf="selectedUser">
-                  <md-card-title-group>
-                    <md-card-title>{{selectedUser?.company.name}}</md-card-title>
-                    <md-card-subtitle>{{selectedUser?.company.catchPhrase}}</md-card-subtitle>
-                    <md-card-subtitle>{{selectedUser?.company.bs}}</md-card-subtitle>
-                  </md-card-title-group>
-                </md-card>
+                <mat-card *ngIf="selectedUser">
+                  <mat-card-title-group>
+                    <mat-card-title>{{selectedUser?.company.name}}</mat-card-title>
+                    <mat-card-subtitle>{{selectedUser?.company.catchPhrase}}</mat-card-subtitle>
+                    <mat-card-subtitle>{{selectedUser?.company.bs}}</mat-card-subtitle>
+                  </mat-card-title-group>
+                </mat-card>
 
               </div>
               <div *ngSwitchCase="'address'">
-                <md-card *ngIf="selectedUser">
-                  <md-card-title-group>
-                    <md-card-title>{{selectedUser?.address.street}}</md-card-title>
-                    <md-card-subtitle>{{selectedUser?.address.suite}}</md-card-subtitle>
-                    <md-card-subtitle>{{selectedUser?.address.city}}</md-card-subtitle>
-                  </md-card-title-group>
-                </md-card>
+                <mat-card *ngIf="selectedUser">
+                  <mat-card-title-group>
+                    <mat-card-title>{{selectedUser?.address.street}}</mat-card-title>
+                    <mat-card-subtitle>{{selectedUser?.address.suite}}</mat-card-subtitle>
+                    <mat-card-subtitle>{{selectedUser?.address.city}}</mat-card-subtitle>
+                  </mat-card-title-group>
+                </mat-card>
 
               </div>
               <div *ngSwitchCase="'posts'">
                 <div *ngFor="let post of selectedUserPosts" class="card-post-item">
-                  <md-card>
-                    <md-card-title-group>
-                      <md-card-title>{{post.title}}</md-card-title>
-                      <md-card-subtitle>{{post.body}}</md-card-subtitle>
-                    </md-card-title-group>
-                  </md-card>
+                  <mat-card>
+                    <mat-card-title-group>
+                      <mat-card-title>{{post.title}}</mat-card-title>
+                      <mat-card-subtitle>{{post.body}}</mat-card-subtitle>
+                    </mat-card-title-group>
+                  </mat-card>
                 </div>
               </div>
-            </md-card-content>
-            <md-card-content>
+            </mat-card-content>
+            <mat-card-content>
               <p>Combines the source Observable with other Observables to create an Observable whose values are calculated from
                 the latest values of each, only when the source emits..</p>
-            </md-card-content>
-          </md-card>
+            </mat-card-content>
+          </mat-card>
         </div>
-      </md-tab>
-      <md-tab>
-        <ng-template md-tab-label>About</ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>About</ng-template>
         <div class="tab-content documentation">
           <iframe src="http://reactivex.io/documentation/operators/combinelatest.html" width="100%" height="350"></iframe>
         </div>
-      </md-tab>
-      <md-tab>
-        <ng-template md-tab-label>Sample Code</ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>Sample Code</ng-template>
         <div class="tab-content">
           <section [innerHTML]="sampleCodeCombine" highlight-js-content=".highlight"></section>
         </div>
-      </md-tab>
-    </md-tab-group>
-    <md-card-footer>
-      <md-progress-bar mode="determinate"></md-progress-bar>
-    </md-card-footer>
-  </md-card>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
 </div>

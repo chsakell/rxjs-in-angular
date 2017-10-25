@@ -1,6 +1,8 @@
 import { createSubscriber } from 'app/shared/utils';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-operators',
@@ -185,7 +187,7 @@ export class OperatorsComponent implements OnInit {
   scan() {
     // produces values without waiting to complete
     Observable.range(1, 10)
-      .merge(Observable.never())
+      .merge(Observable.never<number>())
       .scan<number>((acc, value) => acc + value)
       .subscribe(createSubscriber('scan'));
   }
@@ -267,6 +269,6 @@ export class OperatorsComponent implements OnInit {
       .subscribe(createSubscriber('skip-take-until'));
   }
 
-  
+
 
 }

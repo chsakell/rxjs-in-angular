@@ -1,29 +1,29 @@
-<md-sidenav-container class="demo-root" fullscreen>
-  <md-sidenav #start>
-    <md-nav-list>
-      <a *ngFor="let navItem of navItems" md-list-item (click)="start.close()" [routerLink]="[navItem.route]">
+<mat-sidenav-container class="demo-root" fullscreen>
+  <mat-sidenav #start>
+    <mat-list>
+      <a *ngFor="let navItem of navItems" mat-list-item (click)="start.close()" [routerLink]="[navItem.route]">
         {{navItem.name}}
       </a>
-    </md-nav-list>
-  </md-sidenav>
+    </mat-list>
+  </mat-sidenav>
   <div>
-    <md-toolbar color="primary">
-      <button md-icon-button (click)="start.open()">
-        <md-icon class="md-24" >menu</md-icon>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="start.open()">
+        <mat-icon color="primary" class="material-icons" >menu</mat-icon>
       </button>
       <div class="demo-toolbar">
         <a [routerLink]="['/']" class="home-link">RxJS in Angular</a>
         <span class="example-spacer"></span>
-        <a href="http://chsakell.com/" target="_blank" class="toolbar-link">Blog <md-icon>cast</md-icon></a>
-        <a href="https://twitter.com/chsakellsblog" target="_blank" class="toolbar-link">Twitter <md-icon>volume_up</md-icon></a>
-        <a href="https://www.facebook.com/chsakells.blog" target="_blank" class="toolbar-link">Facebook <md-icon>favorite_border</md-icon></a>
-        <a href="https://github.com/chsakell/rxjs-in-angular" target="_blank" class="toolbar-link">Github <md-icon>code</md-icon></a>
-        <button md-button (click)="dark = !dark">{{dark ? 'Light' : 'Dark'}} theme</button>
+        <a href="http://chsakell.com/" target="_blank" class="toolbar-link">Blog <mat-icon class="material-icons">cast</mat-icon></a>
+        <a href="https://twitter.com/chsakellsblog" target="_blank" class="toolbar-link">Twitter <mat-icon class="material-icons">volume_up</mat-icon></a>
+        <a href="https://www.facebook.com/chsakells.blog" target="_blank" class="toolbar-link">Facebook <mat-icon class="material-icons">favorite_border</mat-icon></a>
+        <a href="https://github.com/chsakell/rxjs-in-angular" target="_blank" class="toolbar-link">Github <mat-icon class="material-icons">code</mat-icon></a>
+        <button mat-button (click)="dark = !dark">{{dark ? 'Light' : 'Dark'}} theme</button>
       </div>
-    </md-toolbar>
+    </mat-toolbar>
 
-    <div #root="$implicit" dir="ltr" class="demo-content">
+    <div dir="ltr" class="demo-content">
       <router-outlet></router-outlet>
     </div>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>

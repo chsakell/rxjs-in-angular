@@ -1,67 +1,67 @@
-<md-card class="no-padding">
-  <md-toolbar color="primary">Subjects demo</md-toolbar>
+<mat-card class="no-padding">
+  <mat-toolbar color="primary">Subjects demo</mat-toolbar>
 
-  <md-tab-group class="demo-tab-group" md-stretch-tabs>
-    <md-tab>
-      <ng-template md-tab-label>Example</ng-template>
+  <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>Example</ng-template>
       <div class="tab-content">
         <div *ngIf="(isLoggedIn$ | async)?.name as user; else loggedIn;">
-          <md-card-content class="padding-16">
-            <md-input-container class="demo-full-width">
-              <input mdInput placeholder="Welcome user.." disabled [value]="user">
-            </md-input-container>
-          </md-card-content>
-          <md-card-content>
-            <md-card-actions class="margin-right--16 align-right">
-              <button md-raised-button [color]="'warn'" (click)="signout()">Logout</button>
-            </md-card-actions>
-          </md-card-content>
+          <mat-card-content class="padding-16">
+            <mat-form-field class="demo-full-width">
+              <input matInput placeholder="Welcome user.." disabled [value]="user">
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-card-actions class="margin-right--16 align-right">
+              <button mat-raised-button color="warn" (click)="signout()">Logout</button>
+            </mat-card-actions>
+          </mat-card-content>
         </div>
         <ng-template #loggedIn>
-          <md-card-content class="padding-16">
+          <mat-card-content class="padding-16">
             <form>
-              <md-input-container class="demo-full-width">
-                <input mdInput placeholder="Enter your credentials.." disabled value="chsakell's blog">
-              </md-input-container>
+              <mat-form-field class="demo-full-width">
+                <input matInput placeholder="Enter your credentials.." disabled value="chsakell's blog">
+              </mat-form-field>
               <table cellspacing="0" class="full-width">
                 <tr>
                   <td>
-                    <md-input-container class="full-width">
-                      <input mdInput placeholder="username" #username>
-                    </md-input-container>
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="username" #username>
+                    </mat-form-field>
                   </td>
                   <td>
-                    <md-input-container class="full-width">
-                      <input mdInput placeholder="password" type="password" #password>
-                    </md-input-container>
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="password" type="password" #password>
+                    </mat-form-field>
                   </td>
                 </tr>
               </table>
             </form>
-          </md-card-content>
-          <md-card-content>
+          </mat-card-content>
+          <mat-card-content>
             <p class="padding-left--16">Subject act both as an Observable and an Observer</p>
-            <md-card-actions class="margin-right--16 align-right">
-              <button md-raised-button [color]="'primary'" (click)="signin(username.value, password.value)">Sign In</button>
-            </md-card-actions>
-          </md-card-content>
+            <mat-card-actions class="margin-right--16 align-right">
+              <button mat-raised-button color="primary" (click)="signin(username.value, password.value)">Sign In</button>
+            </mat-card-actions>
+          </mat-card-content>
         </ng-template>
       </div>
-    </md-tab>
-    <md-tab>
-        <ng-template md-tab-label>About</ng-template>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>About</ng-template>
         <div class="tab-content documentation">
           <iframe src="http://reactivex.io/documentation/subject.html" width="100%" height="350"></iframe>
         </div>
-      </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>Sample Code</ng-template>
+      </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>Sample Code</ng-template>
       <div class="tab-content">
         <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
       </div>
-    </md-tab>
-  </md-tab-group>
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+    </mat-tab>
+  </mat-tab-group>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

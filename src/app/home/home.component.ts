@@ -1,5 +1,8 @@
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Component, OnInit } from '@angular/core';
+import { MatGridList, MatGridTile } from '@angular/material'
 
 @Component({
   selector: 'app-home',

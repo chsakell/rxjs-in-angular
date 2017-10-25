@@ -1,64 +1,64 @@
-<md-card>
-  <md-card-subtitle>Observable fromEvent</md-card-subtitle>
-  <md-card-title>A Hot observable</md-card-title>
-  <md-card-content>
+<mat-card>
+  <mat-card-subtitle>Observable fromEvent</mat-card-subtitle>
+  <mat-card-title>A Hot observable</mat-card-title>
+  <mat-card-content>
     <canvas #mouseEventCard id="mouseEventCard" width="400" height="70"></canvas>
-  </md-card-content>
-  <md-card-content>
+  </mat-card-content>
+  <mat-card-content>
     <p>Hot observables emit values all the time, it's us that we listen only if we subscribe</p>
-    <md-card-actions>
-      <button md-raised-button [color]="'primary'" (click)="toggleMouseMoveEvent()">{{isListening === false ? 'Subscribe' : 'Unsubscribe'}}</button>
-    </md-card-actions>
-  </md-card-content>
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="toggleMouseMoveEvent()">{{isListening === false ? 'Subscribe' : 'Unsubscribe'}}</button>
+    </mat-card-actions>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>
 
-<md-card>
-  <md-card-subtitle>Cold Observables</md-card-subtitle>
-  <md-card-title>Each subscriber get its own observable..</md-card-title>
-  <md-card-content>
+<mat-card>
+  <mat-card-subtitle>Cold Observables</mat-card-subtitle>
+  <mat-card-title>Each subscriber get its own observable..</mat-card-title>
+  <mat-card-content>
 
     <div *ngFor="let subscriber of coldSubscribers" class="inline-block--50">
       <div>
-        <md-slider class="app-slider" [color]="'primary'" [value]="subscriber.sliderValue" thumbLabel [min]="0" [max]="10" step="1"
-          [disabled]="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></md-slider>
+        <mat-slider class="app-slider" color="primary" value="subscriber.sliderValue" thumbLabel min="0" max="10" step="1"
+          disabled="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></mat-slider>
       </div>
       <div>
-        <button md-raised-button [color]="'primary'" (click)="coldSubscribe(subscriber.index)">Subscribe</button>
-        <button md-raised-button style="display:block;float:right">{{subscriber.sliderValue}}</button>
+        <button mat-raised-button color="primary" (click)="coldSubscribe(subscriber.index)">Subscribe</button>
+        <button mat-raised-button style="display:block;float:right">{{subscriber.sliderValue}}</button>
       </div>
     </div>
-  </md-card-content>
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>
 
-<md-card>
-  <md-card-subtitle>Hot Observables</md-card-subtitle>
-  <md-card-title>Each subscriber receives the same emitted value..</md-card-title>
-  <md-card-content>
-    <md-slider class="app-slider" [color]="'primary'" [value]="hotIntervalSlider.sliderValue" thumbLabel [min]="0" [max]="20"
-      step="1" [disabled]="hotIntervalSlider.sliderDisabled" style="width:100%" *ngIf="hotIntervalSlider.sliderVisible"></md-slider>
-  </md-card-content>
-  <md-card-content>
+<mat-card>
+  <mat-card-subtitle>Hot Observables</mat-card-subtitle>
+  <mat-card-title>Each subscriber receives the same emitted value..</mat-card-title>
+  <mat-card-content>
+    <mat-slider class="app-slider" color="primary" value="hotIntervalSlider.sliderValue" thumbLabel min="0" max="20"
+      step="1" disabled="hotIntervalSlider.sliderDisabled" style="width:100%" *ngIf="hotIntervalSlider.sliderVisible"></mat-slider>
+  </mat-card-content>
+  <mat-card-content>
     <div *ngFor="let subscriber of hotSubscribers" class="inline-block--50">
       <div>
-        <md-slider class="app-slider" [color]="'primary'" [value]="subscriber.sliderValue" thumbLabel [min]="0" [max]="20" step="1"
-          [disabled]="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></md-slider>
+        <mat-slider class="app-slider" color="primary" value="subscriber.sliderValue" thumbLabel min="0" max="20" step="1"
+          disabled="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></mat-slider>
       </div>
       <div>
-        <button md-raised-button [color]="'primary'" (click)="hotSubscribe(subscriber.index)">Subscribe</button>
-        <button md-raised-button style="display:block;float:right">{{subscriber.sliderValue}}</button>
+        <button mat-raised-button color="primary" (click)="hotSubscribe(subscriber.index)">Subscribe</button>
+        <button mat-raised-button style="display:block;float:right">{{subscriber.sliderValue}}</button>
       </div>
     </div>
-    <md-card-actions class="align-center">
-      <button md-raised-button [color]="'warn'" (click)="connect()">Connect</button>
-    </md-card-actions>
-  </md-card-content>
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+    <mat-card-actions class="align-center">
+      <button mat-raised-button color="warn" (click)="connect()">Connect</button>
+    </mat-card-actions>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

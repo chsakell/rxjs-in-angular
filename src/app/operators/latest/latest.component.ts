@@ -1,6 +1,9 @@
 import { DataService } from './../../shared/data.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { MatSlider } from '@angular/material'
 import * as _ from 'lodash';
 import { sampleCodeZip, sampleCodeCombine } from 'app/operators/latest/sample-code';
 

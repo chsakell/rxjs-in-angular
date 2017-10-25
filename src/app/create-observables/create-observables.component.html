@@ -1,115 +1,115 @@
 <div class="card-container">
-  <md-card>
-    <md-toolbar color="primary">Create Observables demo</md-toolbar>
+  <mat-card>
+    <mat-toolbar color="primary">Create Observables demo</mat-toolbar>
 
-    <md-tab-group class="demo-tab-group" md-stretch-tabs>
-      <md-tab>
-        <ng-template md-tab-label>Example</ng-template>
+    <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+      <mat-tab>
+        <ng-template mat-tab-label>Example</ng-template>
         <div class="tab-content">
-          <md-card>
-            <md-card-subtitle>Create Observable from scratch</md-card-subtitle>
-            <md-card-title>The Observer function</md-card-title>
-            <md-card-content>
-              <button md-raised-button *ngFor="let user of users" class="margin-4"> {{user.name}}</button>
-            </md-card-content>
-            <md-card-content>
+          <mat-card>
+            <mat-card-subtitle>Create Observable from scratch</mat-card-subtitle>
+            <mat-card-title>The Observer function</mat-card-title>
+            <mat-card-content>
+              <button mat-raised-button *ngFor="let user of users" class="margin-4"> {{user.name}}</button>
+            </mat-card-content>
+            <mat-card-content>
               <p>Observer can emit either new values and errors or complete the observable. Each time we subscribe to the observable,
                 the observer function fires (cold observable)</p>
-              <md-card-actions>
-                <button md-raised-button [color]="'primary'" (click)="randomize()">Randomize</button>
-              </md-card-actions>
-            </md-card-content>
-            <md-card-footer>
-              <md-progress-bar mode="determinate"></md-progress-bar>
-            </md-card-footer>
-          </md-card>
+              <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="randomize()">Randomize</button>
+              </mat-card-actions>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-progress-bar mode="determinate"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
 
-          <md-card>
-            <md-card-subtitle>Observable.of</md-card-subtitle>
-            <md-card-title>The use of the async</md-card-title>
-            <md-card-content>
-              <md-icon class="card-item" [color]="'primary'" *ngFor="let icon of icons$ | async">{{icon}}</md-icon>
-            </md-card-content>
-            <md-card-content>
+          <mat-card>
+            <mat-card-subtitle>Observable.of</mat-card-subtitle>
+            <mat-card-title>The use of the async</mat-card-title>
+            <mat-card-content>
+              <mat-icon class="card-item material-icons" color="primary" *ngFor="let icon of icons$ | async">{{icon}}</mat-icon>
+            </mat-card-content>
+            <mat-card-content>
               <p>Observable.of will emit the icons as a single item-array. The async keyword is used to subscribe and listen
                 to values emitted by the observable</p>
-            </md-card-content>
-            <md-card-footer>
-              <md-progress-bar mode="determinate"></md-progress-bar>
-            </md-card-footer>
-          </md-card>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-progress-bar mode="determinate"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
 
-          <md-card>
-            <md-card-title-group>
-              <md-card-title>{{seconds}} remained to display dialog..</md-card-title>
-              <md-card-subtitle>Observable.timer</md-card-subtitle>
-            </md-card-title-group>
-            <md-card-content>
+          <mat-card>
+            <mat-card-title-group>
+              <mat-card-title>{{seconds}} remained to display dialog..</mat-card-title>
+              <mat-card-subtitle>Observable.timer</mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
               <p>Creates an Observable that emits a sequence of integers spaced by a given time interval</p>
-            </md-card-content>
-            <md-card-footer>
-              <md-progress-bar mode="determinate"></md-progress-bar>
-            </md-card-footer>
-          </md-card>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-progress-bar mode="determinate"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
 
-          <md-card>
-            <md-card-title-group>
-              <md-card-title>Operator Of</md-card-title>
-              <md-card-subtitle>Observable.of(array)</md-card-subtitle>
-            </md-card-title-group>
-            <md-card-content>
+          <mat-card>
+            <mat-card-title-group>
+              <mat-card-title>Operator Of</mat-card-title>
+              <mat-card-subtitle>Observable.of(array)</mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
               <p>Emitted item is array: <strong>{{ofEmittedIsArray}}</strong> Total Items:
                 <strong>{{ofEmittedVal.length}}</strong></p>
-            </md-card-content>
-            <md-card-content>
+            </mat-card-content>
+            <mat-card-content>
               <p>Converts arguments to an observable sequence.</p>
-            </md-card-content>
-            <md-card-footer>
-              <md-progress-bar mode="determinate"></md-progress-bar>
-            </md-card-footer>
-          </md-card>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-progress-bar mode="determinate"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
 
-          <md-card>
-            <md-card-title-group>
-              <md-card-title>Operator From</md-card-title>
-              <md-card-subtitle>Observable.from(array)</md-card-subtitle>
-            </md-card-title-group>
-            <md-card-content>
+          <mat-card>
+            <mat-card-title-group>
+              <mat-card-title>Operator From</mat-card-title>
+              <mat-card-subtitle>Observable.from(array)</mat-card-subtitle>
+            </mat-card-title-group>
+            <mat-card-content>
               <p>Emitted item is array: <strong>{{fromEmittedIsArray}}</strong> Emitted item is Object:
                 <strong>{{fromEmittedIsObject}}</strong> </p>
               <p>
                 Object:
-                <md-chip color="warn">{{fromEmittedVal | json}}</md-chip>
+                <mat-chip color="warn">{{fromEmittedVal | json}}</mat-chip>
               </p>
-            </md-card-content>
-            <md-card-content>
+            </mat-card-content>
+            <mat-card-content>
               <p>Converts arguments to an observable sequence.</p>
-            </md-card-content>
-            <md-card-footer>
-              <md-progress-bar mode="determinate"></md-progress-bar>
-            </md-card-footer>
-          </md-card>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-progress-bar mode="determinate"></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
 
           <ng-template #dialog>
             <h4>I'm a template dialog. I've been opened using an interval Observable!</h4>
             <hr/>
-            <md-chip color="primary" selected="true"><i>Observable.interval(5000).take(1)</i></md-chip>
+            <mat-chip color="primary" selected="true"><i>Observable.interval(5000).take(1)</i></mat-chip>
           </ng-template>
 
         </div>
-      </md-tab>
-      <md-tab>
-        <ng-template md-tab-label>About</ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>About</ng-template>
         <div class="tab-content documentation">
           <iframe src="http://reactivex.io/documentation/operators/from.html" width="100%" height="350"></iframe>
         </div>
-      </md-tab>
-      <md-tab>
-        <ng-template md-tab-label>Sample Code</ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>Sample Code</ng-template>
         <div class="tab-content">
           <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
         </div>
-      </md-tab>
-    </md-tab-group>
-  </md-card>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
 </div>

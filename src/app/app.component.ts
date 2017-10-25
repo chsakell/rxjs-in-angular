@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { MatSidenav, MatSidenavContainer, MatToolbar, MatList, MatListItem,
+MatToolbarBase } from '@angular/material'
 
 @Component({
   moduleId: module.id,

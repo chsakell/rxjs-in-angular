@@ -1,36 +1,36 @@
-<md-card class="no-padding">
-  <md-toolbar color="primary">Merge Map demo</md-toolbar>
+<mat-card class="no-padding">
+  <mat-toolbar color="primary">Merge Map demo</mat-toolbar>
 
-  <md-tab-group class="demo-tab-group" md-stretch-tabs>
-    <md-tab>
-      <ng-template md-tab-label>Example</ng-template>
+  <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>Example</ng-template>
       <div class="tab-content">
-        <md-card-content>
+        <mat-card-content>
           <p>List the different companies for all users</p>
-        </md-card-content>
-        <md-card-content>
-          <md-grid-list cols="5" rowHeight="2:1">
-            <md-grid-tile *ngFor="let company of companies" class="company">
+        </mat-card-content>
+        <mat-card-content>
+          <mat-grid-list cols="5" rowHeight="2:1">
+            <mat-grid-tile *ngFor="let company of companies" class="company">
               <div>{{company.name}}</div>
-            </md-grid-tile>
-          </md-grid-list>
-        </md-card-content>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
       </div>
-    </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>About</ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>About</ng-template>
       <div class="tab-content documentation">
         <iframe src="http://reactivex.io/documentation/operators/flatmap.html" width="100%" height="350"></iframe>
       </div>
-    </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>Sample Code</ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>Sample Code</ng-template>
       <div class="tab-content">
         <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
       </div>
-    </md-tab>
-  </md-tab-group>
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+    </mat-tab>
+  </mat-tab-group>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

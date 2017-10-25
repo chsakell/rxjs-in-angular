@@ -4,7 +4,7 @@
  * attribute, however Chrome handles high contrast differently.
  */
 /* Theme for the ripple elements.*/
-/** The mixins below are shared between md-menu and md-select */
+/** The mixins below are shared between mat-menu and mat-select */
 /**
  * This mixin adds the correct panel transform styles based
  * on the direction that the menu panel opens.
