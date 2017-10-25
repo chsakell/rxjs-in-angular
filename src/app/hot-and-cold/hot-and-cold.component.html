@@ -22,8 +22,8 @@
 
     <div *ngFor="let subscriber of coldSubscribers" class="inline-block--50">
       <div>
-        <mat-slider class="app-slider" color="primary" value="subscriber.sliderValue" thumbLabel min="0" max="10" step="1"
-          disabled="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></mat-slider>
+        <mat-slider class="app-slider" color="primary" [value]="subscriber.sliderValue" thumbLabel [min]="0" [max]="10" [step]="1"
+          [disabled]="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></mat-slider>
       </div>
       <div>
         <button mat-raised-button color="primary" (click)="coldSubscribe(subscriber.index)">Subscribe</button>
@@ -40,14 +40,14 @@
   <mat-card-subtitle>Hot Observables</mat-card-subtitle>
   <mat-card-title>Each subscriber receives the same emitted value..</mat-card-title>
   <mat-card-content>
-    <mat-slider class="app-slider" color="primary" value="hotIntervalSlider.sliderValue" thumbLabel min="0" max="20"
-      step="1" disabled="hotIntervalSlider.sliderDisabled" style="width:100%" *ngIf="hotIntervalSlider.sliderVisible"></mat-slider>
+    <mat-slider class="app-slider" color="primary" [value]="hotIntervalSlider.sliderValue" thumbLabel [min]="0" [max]="20"
+      [step]="1" [disabled]="hotIntervalSlider.sliderDisabled" style="width:100%" *ngIf="hotIntervalSlider.sliderVisible"></mat-slider>
   </mat-card-content>
   <mat-card-content>
     <div *ngFor="let subscriber of hotSubscribers" class="inline-block--50">
       <div>
-        <mat-slider class="app-slider" color="primary" value="subscriber.sliderValue" thumbLabel min="0" max="20" step="1"
-          disabled="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></mat-slider>
+        <mat-slider class="app-slider" color="primary" [value]="subscriber.sliderValue" thumbLabel [min]="0" [max]="20" [step]="1"
+          [disabled]="subscriber.sliderDisabled" *ngIf="subscriber.sliderVisible"></mat-slider>
       </div>
       <div>
         <button mat-raised-button color="primary" (click)="hotSubscribe(subscriber.index)">Subscribe</button>

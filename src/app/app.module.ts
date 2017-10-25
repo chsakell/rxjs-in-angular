@@ -13,6 +13,7 @@ import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
 import { OperatorsComponent } from './operators/operators.component';
 import { APP_ROUTES } from 'app/app.routes';
 import {
+  MatButtonModule,
   MatButtonToggleModule,
   MatFormFieldModule,
   MatSidenavModule,
@@ -26,6 +27,7 @@ import {
   MatToolbarModule,
   MatCardModule,
   MatListModule,
+  MatProgressBarModule,
   MatSliderModule,
   MatTabsModule
 } from '@angular/material';
@@ -69,6 +71,7 @@ import { SwitchMapComponent } from './operators/switch-map/switch-map.component'
     HighlightJsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTES),
+    MatButtonModule,
     MatButtonToggleModule,
     MatDialogModule,
     MatCommonModule,
@@ -81,6 +84,7 @@ import { SwitchMapComponent } from './operators/switch-map/switch-map.component'
     MatToolbarModule,
     MatCardModule,
     MatListModule,
+    MatProgressBarModule,
     MatSliderModule,
     MatTabsModule
   ],

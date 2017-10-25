@@ -6,7 +6,7 @@
       <ng-template mat-tab-label>Example</ng-template>
       <div class="tab-content">
         <mat-card-content>
-          <mat-slider class="app-slider" color="warn" value="sliderValue" thumbLabel min="0" max="5"
+          <mat-slider class="app-slider" color="warn" [value]="sliderValue" thumbLabel [min]="0" [max]="5"
             step="1" #slider1></mat-slider>
             <h3>Select 5 numbers to add</h3>
         </mat-card-content>
