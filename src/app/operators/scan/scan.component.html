@@ -1,52 +1,52 @@
-<md-card class="no-padding">
-  <md-toolbar color="primary">Scan operator demo</md-toolbar>
+<mat-card class="no-padding">
+  <mat-toolbar color="primary">Scan operator demo</mat-toolbar>
 
-  <md-tab-group class="demo-tab-group" md-stretch-tabs>
-    <md-tab>
-      <ng-template md-tab-label>Example</ng-template>
+  <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>Example</ng-template>
       <div class="tab-content">
         <div class="margin-4">
           {{album.title}} :
-          <button md-raised-button [color]="'primary'">{{album.likes}} Likes <md-icon>thumb_up</md-icon></button>
-          <button md-raised-button [color]="'warn'">{{album.dislikes}} Dislikes <md-icon>thumb_down</md-icon></button>
+          <button mat-raised-button color="primary">{{album.likes}} Likes <mat-icon class="material-icons">thumb_up</mat-icon></button>
+          <button mat-raised-button color="warn">{{album.dislikes}} Dislikes <mat-icon class="material-icons">thumb_down</mat-icon></button>
         </div>
-        <md-grid-list cols="3" rowHeight="2:1">
-          <md-grid-tile *ngFor="let image of album.images" class="margin-right-8">
-            <md-card class="padding-bottom-0">
-              <md-card-title-group>
-                <md-card-title>{{image.title}}</md-card-title>
-                <md-card-subtitle>{{image.date | date:'medium'}}</md-card-subtitle>
-                <img md-card-md-image [src]="image.src">
-              </md-card-title-group>
-              <md-card-content class="margin-bottom-0">
-                <md-card-actions class="margin-4 align-left">
-                  <button md-raised-button>{{image.likes}}  <md-icon [color]="'primary'">thumb_up</md-icon></button>
-                  <button md-raised-button [color]="'warn'">{{image.dislikes}}  <md-icon>thumb_down</md-icon></button>
-                </md-card-actions>
-              </md-card-content>
-              <md-card-footer>
-                <md-progress-bar mode="determinate"></md-progress-bar>
-              </md-card-footer>
-            </md-card>
-          </md-grid-tile>
-        </md-grid-list>
+        <mat-grid-list cols="3" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let image of album.images" class="margin-right-8">
+            <mat-card class="padding-bottom-0">
+              <mat-card-title-group>
+                <mat-card-title>{{image.title}}</mat-card-title>
+                <mat-card-subtitle>{{image.date | date:'medium'}}</mat-card-subtitle>
+                <img mat-card-mat-image [src]="image.src">
+              </mat-card-title-group>
+              <mat-card-content class="margin-bottom-0">
+                <mat-card-actions class="margin-4 align-left">
+                  <button mat-raised-button>{{image.likes}}  <mat-icon class="material-icons" color="primary">thumb_up</mat-icon></button>
+                  <button mat-raised-button color="warn">{{image.dislikes}}  <mat-icon class="material-icons">thumb_down</mat-icon></button>
+                </mat-card-actions>
+              </mat-card-content>
+              <mat-card-footer>
+                <mat-progress-bar mode="determinate"></mat-progress-bar>
+              </mat-card-footer>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
         <p>Each time a like or a dislike is being emitted, the corresponding total value is calculated</p>
       </div>
-    </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>About</ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>About</ng-template>
       <div class="tab-content documentation">
         <iframe src="http://reactivex.io/documentation/operators/scan.html" width="100%" height="350"></iframe>
       </div>
-    </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>Sample Code</ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>Sample Code</ng-template>
       <div class="tab-content">
         <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
       </div>
-    </md-tab>
-  </md-tab-group>
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+    </mat-tab>
+  </mat-tab-group>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

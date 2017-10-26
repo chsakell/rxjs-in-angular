@@ -1,7 +1,7 @@
 <!--<div class="home-image" style="background-image: url(../../assets/images/reactiveX.png)"></div>-->
 <div style="background:#303030">
-  <md-grid-list cols="13" rowHeight="1:1" *ngFor="let phrase of phrases" gutterSize="4" class="margin-bottom-4">
-    <md-grid-tile *ngFor="let word of phrase" class="home-phrase flip-container" [ngClass]="{'phrase-highlight': word.highlighted === true}">
+  <mat-grid-list cols="13" rowHeight="1:1" *ngFor="let phrase of phrases" gutterSize="4" class="margin-bottom-4">
+    <mat-grid-tile *ngFor="let word of phrase" class="home-phrase flip-container" [ngClass]="{'phrase-highlight': word.highlighted === true}">
       <div class="flipper">
         <div class="front mat-grid-tile mat-figure">
             <!--<img [src]="'assets/images/' + word.image" *ngIf="word.image"/> -->
@@ -10,6 +10,6 @@
           {{word.letter}}
         </div>
       </div>
-    </md-grid-tile>
-  </md-grid-list>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

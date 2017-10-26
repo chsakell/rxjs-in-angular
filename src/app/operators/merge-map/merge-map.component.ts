@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { DataService } from './../../shared/data.service';
 import { Component, OnInit } from '@angular/core';
 import { sampleCode } from './sample-code';

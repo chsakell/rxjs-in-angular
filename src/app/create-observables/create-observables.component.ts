@@ -1,7 +1,8 @@
-import { MdDialogConfig, MdDialog } from '@angular/material';
+import {MatDialog, MatDialogRef, MatDialogConfig, MAT_DIALOG_DATA} from '@angular/material';
 import { DataService } from './../shared/data.service';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import { sampleCode } from './sample-code';
 import * as _ from 'lodash';
 
@@ -34,7 +35,7 @@ export class CreateObservablesComponent implements OnInit {
 
   @ViewChild('dialog') template: TemplateRef<any>;
   seconds = 5;
-  config: MdDialogConfig = {
+  config: MatDialogConfig = {
     disableClose: false,
     hasBackdrop: true,
     backdropClass: '',
@@ -56,7 +57,7 @@ export class CreateObservablesComponent implements OnInit {
 
   sampleCode = sampleCode;
 
-  constructor(public dialog: MdDialog, private ds: DataService) { }
+  constructor(public dialog: MatDialog, private ds: DataService) { }
 
   ngOnInit() {
     this.fromScratch();

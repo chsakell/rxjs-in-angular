@@ -13,12 +13,26 @@ import { HotAndColdComponent } from './hot-and-cold/hot-and-cold.component';
 import { OperatorsComponent } from './operators/operators.component';
 import { APP_ROUTES } from 'app/app.routes';
 import {
-  FullscreenOverlayContainer,
-  MaterialModule,
-  MdNativeDateModule,
-  MdSelectionModule,
-  OverlayContainer
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatFormFieldModule,
+  MatSidenavModule,
+  MatDialogModule,
+  MatCommonModule,
+  MatInputModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatDialog,
+  MatGridListModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatListModule,
+  MatProgressBarModule,
+  MatSliderModule,
+  MatTabsModule,
+  MatTooltipModule
 } from '@angular/material';
+import { OverlayContainer, FullscreenOverlayContainer } from '@angular/cdk/overlay';
 
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
@@ -58,12 +72,27 @@ import { SwitchMapComponent } from './operators/switch-map/switch-map.component'
     HighlightJsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTES),
-    MaterialModule,
-    MdNativeDateModule,
-    MdSelectionModule
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatCommonModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule,
+    MatProgressBarModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatTooltipModule
   ],
   providers: [
     DataService,
+    MatDialog,
     HighlightJsService,
     { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
   ],

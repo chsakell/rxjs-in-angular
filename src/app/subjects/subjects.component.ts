@@ -1,6 +1,12 @@
 import { sampleCode } from './../create-observables/sample-code';
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Observable, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { AsyncSubject } from 'rxjs/AsyncSubject';
+
+import { MatFormField } from '@angular/material';
 
 @Component({
   selector: 'app-subjects',

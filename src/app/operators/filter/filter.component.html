@@ -1,45 +1,45 @@
-<md-card>
-  <md-toolbar color="primary">Filter operator demo</md-toolbar>
+<mat-card>
+  <mat-toolbar color="primary">Filter operator demo</mat-toolbar>
 
-  <md-tab-group class="demo-tab-group" md-stretch-tabs>
-    <md-tab>
-      <ng-template md-tab-label>Example</ng-template>
+  <mat-tab-group class="demo-tab-group" mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>Example</ng-template>
       <div class="tab-content">
-        <md-card-content>
-          <md-select #selectedUser id="selectedUser" (change)="selectedUser$.next($event.value)" placeholder="Select user" class="md-select--150">
-            <md-option *ngFor="let user of ds.getUsersSync()" [value]="user.id">
+        <mat-card-content>
+          <mat-select #selectedUser id="selectedUser" (change)="selectedUser$.next($event.value)" placeholder="Select user" class="mat-select--150">
+            <mat-option *ngFor="let user of ds.getUsersSync()" [value]="user.id">
               {{user.name}}
-            </md-option>
-          </md-select>
-          <md-progress-bar mode="indeterminate" class="margin-4" *ngIf="loading"></md-progress-bar>
+            </mat-option>
+          </mat-select>
+          <mat-progress-bar mode="indeterminate" class="margin-4" *ngIf="loading"></mat-progress-bar>
           <div class="posts-container">
-            <md-card *ngFor="let post of loadedPosts">
+            <mat-card *ngFor="let post of loadedPosts">
               {{post.title}}
-            </md-card>
+            </mat-card>
           </div>
-        </md-card-content>
-        <md-card-content>
+        </mat-card-content>
+        <mat-card-content>
           <p>API call on condition...</p>
-        </md-card-content>
+        </mat-card-content>
       </div>
-    </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>About</ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>About</ng-template>
       <div class="tab-content documentation">
         <iframe src="http://reactivex.io/documentation/operators/filter.html" width="100%" height="350"></iframe>
       </div>
-    </md-tab>
-    <md-tab>
-      <ng-template md-tab-label>Sample Code</ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>Sample Code</ng-template>
       <div class="tab-content">
         <section [innerHTML]="sampleCode" highlight-js-content=".highlight"></section>
       </div>
-    </md-tab>
-  </md-tab-group>
+    </mat-tab>
+  </mat-tab-group>
 
 
 
-  <md-card-footer>
-    <md-progress-bar mode="determinate"></md-progress-bar>
-  </md-card-footer>
-</md-card>
+  <mat-card-footer>
+    <mat-progress-bar mode="determinate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>
