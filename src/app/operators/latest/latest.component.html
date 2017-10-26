@@ -79,7 +79,7 @@
                   {{user.name}}
                 </mat-option>
               </mat-select>
-              <button mat-icon-button matTooltip="tooltip" matTooltipPosition="'right'">
+              <button mat-icon-button [matTooltip]="tooltip" matTooltipPosition="right">
           <mat-icon class="material-icons" color="primary">info</mat-icon>
         </button>
               <br/>
@@ -98,7 +98,7 @@
                     <mat-icon class="material-icons" color="warn">rss_feed</mat-icon>
                   </mat-button-toggle>
                 </mat-button-toggle-group>
-                <button mat-icon-button matTooltip="the source observable" matTooltipPosition="'right'">
+                <button mat-icon-button matTooltip="the source observable" matTooltipPosition="right">
           <mat-icon class="material-icons" color="primary">info</mat-icon>
         </button>
               </div>
