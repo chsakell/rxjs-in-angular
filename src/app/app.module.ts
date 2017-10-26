@@ -29,7 +29,8 @@ import {
   MatListModule,
   MatProgressBarModule,
   MatSliderModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTooltipModule
 } from '@angular/material';
 import { OverlayContainer, FullscreenOverlayContainer } from '@angular/cdk/overlay';
 
@@ -86,7 +87,8 @@ import { SwitchMapComponent } from './operators/switch-map/switch-map.component'
     MatListModule,
     MatProgressBarModule,
     MatSliderModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTooltipModule
   ],
   providers: [
     DataService,
