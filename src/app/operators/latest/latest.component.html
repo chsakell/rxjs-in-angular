@@ -63,7 +63,7 @@
           <mat-card>
             <mat-card-subtitle>
               <span style="float:right">
-        <mat-select [(ngModel)]="operator" class="mat-select--150" (change)="switchOperator($event.value)">
+        <mat-select [(ngModel)]="operator" class="mat-select--150" (ngModelChange)="switchOperator($event.value)">
           <mat-option [value]="'withLatestFrom'">
             withLatestFrom
           </mat-option>
